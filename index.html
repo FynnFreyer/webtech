@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Kartenapp - Login</title>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<main>
+    <header>
+        <img src="https://fpoimg.com/200x100" width="200" height="100" alt="header_image"/>
+        <nav>
+            <ul>
+                <!-- TODO only display links if logged in -->
+                <!-- look for session cookie?! -->
+                <li><a href="/overview.html">Karte</a></li>
+                <li><a href="/add.html">Hinzufügen</a></li>
+                <li><a href="/edit.html">Änderungen</a></li>
+                <li><a href="/">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="content">
+    <form id="login-form" action="#">
+        <label for="email">E-Mail</label>
+        <input type="email" id="email" required>
+        <label for="password">Passwort</label>
+        <input type="password" id="password" required>
+        <input type="submit" value="Login">
+    </form>
+    </div>
+    <footer>Copyright 2021</footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,62 @@
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 8fr 1fr;
+    grid-template-rows: auto auto auto;
+    justify-content: space-evenly;
+    align-content: space-evenly;
+    grid-template-areas:
+            "header  header   header"
+            ".       content  .     "
+            ".       footer   .     ";
+    row-gap: 5vh;
+}
+
+header {
+    display: flex;
+    grid-area: header;
+}
+
+header img {
+    object-fit: contain;
+    flex-grow: 1;
+}
+
+header nav {
+    flex-grow: 3;
+    background-color: hotpink;
+    align-content: center;
+
+}
+
+nav ul li a, nav ul li a:visited {
+    color: aqua;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+}
+
+.content {
+    grid-area: content;
+    object-fit: contain;
+}
+
+#world-map {
+    width: fit-content;
+    height: fit-content;
+}
+
+footer {
+    grid-area: footer;
+}
+
+form#login-form {
+    display: grid;
+}
