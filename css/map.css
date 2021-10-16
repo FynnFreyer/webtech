@@ -1,0 +1,19 @@
+svg {
+    max-width: 95vw;
+    max-height: 80vh;
+    fill: #ececec;
+    cursor: pointer;
+}
+
+#DE, #EG {
+    fill: #52b788;
+}
+
+.Australia {
+    fill: #52b788;
+}
+
+
+path:hover {
+    fill: #FCD5CE;
+}

@@ -4,19 +4,37 @@
     <meta charset="UTF-8">
     <title>Kartenapp - Hinzufügen</title>
     <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/add.css"/>
 </head>
 <body>
-<header>
-    <img src="https://fpoimg.com/200x100" width="200" height="100" alt="header_image"/>
-    <nav>
-        <ul>
-            <li><a href="/overview.html">Karte</a></li>
-            <li><a href="/add.html">Hinzufügen</a></li>
-            <li><a href="/edit.html">Änderungen</a></li>
-            <li><a href="/">Login</a></li>
-        </ul>
-    </nav>
-</header>
+<main>
+    <header>
+        <div class="LogoWrapper">
+            <h1 class="logo">TravelApp.</h1>
+        </div>
+        <nav>
+            <ul>
+                <!-- TODO only display links if logged in -->
+                <!-- look for session cookie?! -->
+                <li><a href="/overview.html">Karte</a></li>
+                <li><a href="/add.html">Hinzufügen</a></li>
+                <li><a href="/edit.html">Änderungen</a></li>
+                <li><a href="/">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="content">
+        <form id="add-form" action="#">
+            <h1>Reise hinzufügen</h1>
+            <input type="text" id="reisename" placeholder="Name der Reise" class="textfield" required>
+            <input type="text" id="start" placeholder="Startdatum" class="textfield" onfocus="(this.type='date')" required>
+            <input type="text" id="ende" placeholder="Enddatum" class="textfield" onfocus="(this.type='date')" required>
+            <input type="text" id="land" placeholder="Reiseland" class="textfield" required>
+            <input type="submit" class="button" value="Hinzufügen">
+        </form>
+    </div>
+    <footer></footer>
+</main>
 
 
 </body>
