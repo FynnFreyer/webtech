@@ -1,7 +1,15 @@
 # Zu erledigen
-- add Seite
-- edit Seite mit Tabelle
-- schön machen mit css
-  - color theme
-  - layout überarbeiten
-- responsive
+- [ ] schön machen mit css + responsive!!!
+- [ ] edit Seite mit Dropdown und Möglichkeit neue Reise
+  - color theme 
+  - layout überarbeiten => Edit: Tabelle
+- responsive !!!
+  - *Add* und **Edit** zusammen
+- Quelle Animation 
+
+---
+# Ideen: 
+- Tabellen Übersicht unter Karte 
+- Tooltip bei Hover über Land mit Reise; Handy andere Lösung überlegen
+- Statistik bspw. Tage verbracht 
+- Edit: Dropdown mit Reise auswählen nach Reisename oder neue Reise (unique) 

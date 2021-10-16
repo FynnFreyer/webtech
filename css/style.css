@@ -1,3 +1,8 @@
+body {
+    font-family: Helvetica;
+    background-color: #FCD5CE;
+    margin: 0px;
+}
 
 main {
     display: grid;
@@ -15,26 +20,43 @@ main {
 header {
     display: flex;
     grid-area: header;
+    height: 50px;
+    background-color: white;
 }
 
-header img {
-    object-fit: contain;
-    flex-grow: 1;
+.LogoWrapper {
+    margin-top: 5px;
+    flex-grow: 2;
+    display: flex;
+    justify-content: left;
 }
+
+.logo {
+    margin-left: 10%;
+    margin-right: 5%;
+    margin-top: 0px;
+}
+
 
 header nav {
     flex-grow: 3;
-    background-color: hotpink;
     align-content: center;
-
+    font-family: monospace;
+    font-size: 15px;
 }
 
 nav ul li a, nav ul li a:visited {
-    color: aqua;
+    color: black;
+    text-decoration: none;
 }
 
 nav ul li {
     list-style: none;
+}
+
+nav ul li a:hover{
+    color: #FCD5CE;
+    text-decoration: overline;
 }
 
 nav ul {
@@ -45,12 +67,7 @@ nav ul {
 
 .content {
     grid-area: content;
-    object-fit: contain;
-}
-
-#world-map {
-    width: fit-content;
-    height: fit-content;
+    object-fit: scale-down;
 }
 
 footer {
@@ -60,3 +77,46 @@ footer {
 form#login-form {
     display: grid;
 }
+
+.logo {
+    object-fit: contain;
+    height: 40px;
+}
+form {
+    width: 30%;
+    margin:  auto;
+    margin-top: 10%;
+    padding: 20px;
+    background-color: white;
+    max-width: 350px;
+    display: grid;
+}
+
+
+/* ------ UI Elements ------ */
+
+/* Text Field */
+.textfield {
+    margin-bottom: 20px;
+    padding: 12px 20px;
+    border-radius: 0;
+    border: 1px solid black;
+
+}
+
+.textfield:hover {
+    border: 1px solid #FCD5CE;
+}
+/* Buttons */
+.button {
+    color: #F8EDEB;
+    background-color: black;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #52b788;
+}
+
