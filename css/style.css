@@ -17,6 +17,12 @@ main {
     row-gap: 5vh;
 }
 
+@media only screen and (max-width: 600px) {
+    main {
+        grid-template-columns: 20px 1fr 20px;
+    }
+}
+
 header {
     display: flex;
     grid-area: header;
@@ -24,7 +30,7 @@ header {
     background-color: white;
 }
 
-.LogoWrapper {
+.logowrapper {
     margin-top: 5px;
     flex-grow: 2;
     display: flex;
@@ -48,15 +54,17 @@ header nav {
 nav ul li a, nav ul li a:visited {
     color: black;
     text-decoration: none;
+    outline-style: none;
 }
 
 nav ul li {
     list-style: none;
+    outline-style: none;
+
 }
 
-nav ul li a:hover{
-    color: #FCD5CE;
-    text-decoration: overline;
+nav ul li a:hover {
+    color: #e3e3e3;
 }
 
 nav ul {
@@ -67,27 +75,25 @@ nav ul {
 
 .content {
     grid-area: content;
-    object-fit: scale-down;
+    object-fit: contain;
+    background-color: white;
+    width: fit-content;
 }
 
 footer {
     grid-area: footer;
 }
 
-form#login-form {
-    display: grid;
-}
-
 .logo {
     object-fit: contain;
     height: 40px;
 }
+
 form {
-    width: 30%;
-    margin:  auto;
+    min-width: 30%;
+    margin: auto;
     margin-top: 10%;
     padding: 20px;
-    background-color: white;
     max-width: 350px;
     display: grid;
 }
@@ -95,8 +101,19 @@ form {
 
 /* ------ UI Elements ------ */
 
-/* Text Field */
-.textfield {
+/* from https://www.w3.org/WAI/tutorials/forms/labels/#note-on-hiding-elements*/
+.hidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.formfield {
     margin-bottom: 20px;
     padding: 12px 20px;
     border-radius: 0;
@@ -104,9 +121,10 @@ form {
 
 }
 
-.textfield:hover {
+.formfield:hover {
     border: 1px solid #FCD5CE;
 }
+
 /* Buttons */
 .button {
     color: #F8EDEB;

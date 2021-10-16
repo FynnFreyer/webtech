@@ -1,4 +1,10 @@
 <?xml version="1.0"?>
+
+<!-- import our custom CSS into the map -->
+<?xml-stylesheet type="text/css" href="../css/worldmap.css" ?>
+
+
+
 <!--
 *************Map created by Simplemaps.com********************		
 *************Attribution is highly appreciated!***************

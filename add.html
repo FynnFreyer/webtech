@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <title>Kartenapp - Hinzufügen</title>
@@ -9,7 +9,7 @@
 <body>
 <main>
     <header>
-        <div class="LogoWrapper">
+        <div class="logowrapper">
             <h1 class="logo">TravelApp.</h1>
         </div>
         <nav>
@@ -23,16 +23,14 @@
             </ul>
         </nav>
     </header>
-    <div class="content">
-        <form id="add-form" action="#">
-            <h1>Reise hinzufügen</h1>
-            <input type="text" id="reisename" placeholder="Name der Reise" class="textfield" required>
-            <input type="text" id="start" placeholder="Startdatum" class="textfield" onfocus="(this.type='date')" required>
-            <input type="text" id="ende" placeholder="Enddatum" class="textfield" onfocus="(this.type='date')" required>
-            <input type="text" id="land" placeholder="Reiseland" class="textfield" required>
-            <input type="submit" class="button" value="Hinzufügen">
-        </form>
-    </div>
+    <form id="add-form" action="#" class="content">
+        <h1>Reise hinzufügen</h1>
+        <input type="text" id="reisename" placeholder="Name der Reise" class="formfield" required>
+        <input type="text" id="start" placeholder="Startdatum" class="formfield" onfocus="(this.type='date')" required>
+        <input type="text" id="ende" placeholder="Enddatum" class="formfield" onfocus="(this.type='date')" required>
+        <input type="text" id="land" placeholder="Reiseland" class="formfield" required>
+        <input type="submit" class="button" value="Hinzufügen">
+    </form>
     <footer></footer>
 </main>
 

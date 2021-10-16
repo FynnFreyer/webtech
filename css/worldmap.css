@@ -1,8 +1,11 @@
-svg {
+object {
     max-width: 95vw;
     max-height: 80vh;
     fill: #ececec;
     cursor: pointer;
+}
+object svg {
+
 }
 
 #DE, #EG {

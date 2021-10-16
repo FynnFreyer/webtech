@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="utf-8"/>
     <title>Kartenapp - Login</title>
@@ -9,7 +9,7 @@
 <body>
 <main>
     <header>
-        <div class="LogoWrapper">
+        <div class="logowrapper">
             <h1 class="logo">TravelApp.</h1>
         </div>
         <nav>
@@ -23,16 +23,16 @@
             </ul>
         </nav>
     </header>
-    <div class="content">
-        <form id="login-form" action="#">
-            <h1>Login</h1>
-            <input type="email" id="email" placeholder="E-mail" class="textfield" required>
-            <input type="password" id="password" class="textfield" placeholder="Passwort" required>
-            <input type="submit" class="button" value="Einloggen">
-        </form>
-    </div>
+    <form id="login-form" class="content" action="#">
+        <h1>Login</h1>
+        <label for="email" class="hidden">E-Mail-Adresse</label>
+        <input type="email" id="email" placeholder="E-Mail-Adresse" class="formfield" required>
+        <label for="password" class="hidden">Passwort</label>
+        <input type="password" id="password" class="formfield" placeholder="Passwort" required>
+        <input type="submit" class="button" value="Einloggen">
+    </form>
     <footer>
-        <div class="welcomeWrapper">
+        <div class="welcomewrapper">
             <div class="welcome">Willkommen!</div>
         </div>
     </footer>
