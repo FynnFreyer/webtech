@@ -17,5 +17,8 @@ Es gibt verschiedene Seiten
 - `index.html` - Login  
     Man muss sich initial Einloggen um die anderen Funktionalitäten freizuschalten.
 
-Das CSS ist im Ordner `css` und in globales (in `style.css`) 
-und seitenspezifisches CSS (in nach der betroffenen HTML-Datei benannten Dateien) unterschieden.
+Das CSS ist im Ordner `css` und in globales 
+und seitenspezifisches CSS unterschieden.
+
+Globales CSS liegt in `css/style.css`.   
+Seitenspezifisches CSS in einer nach der importierenden Datei benannten Datei im Ordner `css`.
