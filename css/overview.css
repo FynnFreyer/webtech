@@ -1,9 +1,16 @@
 object {
-    min-width: 80vw;
-    min-height: 80vh;
-    object-fit: contain;
+    min-width: 80%;
+    min-height: 80%;
 }
 
 .content {
+    padding: 0px;
+}
+
+.mapwrapper {
     display: flex;
+}
+
+svg {
+    border: none;
 }

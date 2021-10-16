@@ -1,15 +1,12 @@
 body {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
 
     font-family: Helvetica, sans-serif;
     background-color: #FCD5CE;
 }
 
 main {
-    margin: 0px;
-    padding: 0px;
-
     display: grid;
     grid-template-columns: 1fr 8fr 1fr;
     grid-template-rows: auto auto auto;
@@ -30,89 +27,82 @@ main {
 
 header {
     display: flex;
+    align-items: center;
     grid-area: header;
-    height: 50px;
     background-color: white;
+    padding: 0.5% 5% 0.5% 5%;
+    font-size: 3vh;
 }
 
-.logowrapper {
-    margin-top: 5px;
+header .logowrapper {
     flex-grow: 2;
-    display: flex;
-    justify-content: left;
 }
-
-.logo {
-    margin-left: 10%;
-    margin-right: 5%;
-    margin-top: 0px;
-}
-
 
 header nav {
     flex-grow: 3;
-    align-content: center;
     font-family: monospace;
-    font-size: 15px;
 }
 
-nav ul li a, nav ul li a:visited {
+header nav ul {
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    height: max-content;
+}
+header nav ul li {
+    list-style: none;
+    outline-style: none;
+    height: auto;
+}
+/*header nav ul li:hover {*/
+/*    background-color: #52b788;*/
+/*}*/
+
+header nav ul li a, header nav ul li a:visited {
     color: black;
     text-decoration: none;
     outline-style: none;
 }
 
-nav ul li {
-    list-style: none;
-    outline-style: none;
-
-}
-
-nav ul li a:hover {
+header nav ul li a:hover {
     color: #8f8f8f;
 }
 
-nav ul {
-    display: flex;
-    justify-content: space-around;
-    align-content: center;
-}
 
 .content {
-    /*display: flex;*/
-    justify-content: center;
-    align-items: center;
     grid-area: content;
     object-fit: contain;
     background-color: white;
-    position: relative;
-    padding-top: 5vh;
-    padding-bottom: 5vh;
+    padding: 5%;
 
+}
+
+.content form {
+    margin: auto;
+    max-width: 60%;
+    display: flex;
+    flex-flow: column wrap;
+    row-gap: 2.5%;
+}
+/*.content form select {*/
+/*    margin-top: 0;*/
+/*    margin-bottom: 1.8%;*/
+/*    !*place-self: stretch;*!*/
+/*}*/
+.content form.form-grid {
+    display: grid;
+    column-gap: 2.5%;
 }
 
 footer {
     grid-area: footer;
 }
 
-.logo {
-    object-fit: contain;
-    height: 40px;
-}
-
-form {
-    min-width: 30%;
-    margin: auto;
-    padding: 20px;
-    max-width: 350px;
-    display: grid;
-}
 
 
 /* ------ UI Elements ------ */
-
 .formfield {
-    margin-bottom: 20px;
+    margin-bottom: 2.5%;
     padding: 12px 20px;
     border-radius: 0;
     border: 1px solid black;
