@@ -1,21 +1,27 @@
-object {
-    max-width: 95vw;
-    max-height: 80vh;
-    fill: #ececec;
-    cursor: pointer;
+svg {
+    object-fit: contain;
+    /*justify-content: center;*/
+    /*align-items: center;*/
 }
-object svg {
 
+.traveled {
+    fill: #52b788;
+}
+
+.traveled:hover {
+    fill: #52836b;
 }
 
 #DE, #EG {
     fill: #52b788;
 }
+#DE:hover, #EG:hover {
+    fill: #52836b;
+}
 
 .Australia {
     fill: #52b788;
 }
-
 
 path:hover {
     fill: #FCD5CE;

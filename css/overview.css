@@ -1,0 +1,6 @@
+object, embed {
+    min-width: 80vw;
+    min-height: 80vh;
+    fill: #ececec;
+    object-fit: contain;
+}
