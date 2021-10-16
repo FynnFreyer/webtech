@@ -23,14 +23,22 @@
             </ul>
         </nav>
     </header>
-    <form id="add-form" action="#" class="content">
-        <h1>Reise hinzufügen</h1>
-        <input type="text" id="reisename" placeholder="Name der Reise" class="formfield" required>
-        <input type="text" id="start" placeholder="Startdatum" class="formfield" onfocus="(this.type='date')" required>
-        <input type="text" id="ende" placeholder="Enddatum" class="formfield" onfocus="(this.type='date')" required>
-        <input type="text" id="land" placeholder="Reiseland" class="formfield" required>
-        <input type="submit" class="button" value="Hinzufügen">
-    </form>
+    <div class="content">
+        <form id="add-form" action="#">
+            <h1>Reise hinzufügen</h1>
+            <input type="text" id="reisename" placeholder="Name der Reise" class="formfield" required>
+            <input type="text" id="start" placeholder="Startdatum" class="formfield" onfocus="(this.type='date')"
+                   required>
+            <input type="text" id="ende" placeholder="Enddatum" class="formfield" onfocus="(this.type='date')" required>
+            <select id="country" class="formfield" required>
+                <option disabled selected>Reiseland</option>
+                <option>alle</option>
+                <option>möglichen</option>
+                <option>Länder</option>
+            </select>
+            <input type="submit" class="button" value="Hinzufügen">
+        </form>
+    </div>
     <footer></footer>
 </main>
 

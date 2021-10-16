@@ -22,29 +22,32 @@
             </ul>
         </nav>
     </header>
-    <form id="edit-form" class="content" action="#">
-        <h1>Reise editieren</h1>
-        <label for="name" style="display: none;">Startdatum</label>
-        <select id="name" placeholder="Name der Reise" class="formfield" required>
-            <option disabled selected>Name der Reise</option>
-            <option>alle</option>
-            <option>möglichen</option>
-            <option>Reisen</option>
-        </select>
-        <label for="start" class="hidden">Startdatum</label>
-        <input type="text" id="start" placeholder="Startdatum" class="formfield" onfocus="(this.type='date')" required>
-        <label for="end" class="hidden">Enddatum</label>
-        <input type="text" id="end" placeholder="Enddatum" class="formfield" onfocus="(this.type='date')" required>
-        <label for="country" class="hidden">Reiseland</label>
-        <select id="country" class="formfield" required>
-            <option disabled selected>Reiseland</option>
-            <option>alle</option>
-            <option>möglichen</option>
-            <option>Länder</option>
-        </select>
-        <input type="submit" id="save" class="button" value="Speichern">
-        <input type="submit" id="delete" class="button" style="margin-top: 10px" value="Löschen">
-    </form>
+    <div class="content">
+        <form id="edit-form" action="#">
+            <h1>Reise editieren</h1>
+            <label for="name" style="display: none;">Startdatum</label>
+            <select id="name" placeholder="Name der Reise" class="formfield" required>
+                <option disabled selected>Name der Reise</option>
+                <option>alle</option>
+                <option>möglichen</option>
+                <option>Reisen</option>
+            </select>
+            <label for="start" class="hidden">Startdatum</label>
+            <input type="text" id="start" placeholder="Startdatum" class="formfield" onfocus="(this.type='date')"
+                   required>
+            <label for="end" class="hidden">Enddatum</label>
+            <input type="text" id="end" placeholder="Enddatum" class="formfield" onfocus="(this.type='date')" required>
+            <label for="country" class="hidden">Reiseland</label>
+            <select id="country" class="formfield" required>
+                <option disabled selected>Reiseland</option>
+                <option>alle</option>
+                <option>möglichen</option>
+                <option>Länder</option>
+            </select>
+            <input type="submit" id="save" class="button" value="Speichern">
+            <input type="submit" id="delete" class="button" style="margin-top: 10px" value="Löschen">
+        </form>
+    </div>
     <footer></footer>
 </main>
 

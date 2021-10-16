@@ -1,14 +1,9 @@
-object, embed {
+object {
     min-width: 80vw;
     min-height: 80vh;
-    fill: #ececec;
     object-fit: contain;
 }
 
-.oceanxx
-{
-    opacity: 1;
-    fill: #1a6090;
-    stroke: #000000;
-    stroke-width: 0.5;
+.content {
+    display: flex;
 }

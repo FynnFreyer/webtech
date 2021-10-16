@@ -1,10 +1,15 @@
 body {
-    font-family: Helvetica;
-    background-color: #FCD5CE;
     margin: 0px;
+    padding: 0px;
+
+    font-family: Helvetica, sans-serif;
+    background-color: #FCD5CE;
 }
 
 main {
+    margin: 0px;
+    padding: 0px;
+
     display: grid;
     grid-template-columns: 1fr 8fr 1fr;
     grid-template-rows: auto auto auto;
@@ -17,7 +22,7 @@ main {
     row-gap: 5vh;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 900px) {
     main {
         grid-template-columns: 10px 1fr 10px;
     }
@@ -64,7 +69,7 @@ nav ul li {
 }
 
 nav ul li a:hover {
-    color: #e3e3e3;
+    color: #8f8f8f;
 }
 
 nav ul {
@@ -74,13 +79,16 @@ nav ul {
 }
 
 .content {
-    display: flex;
+    /*display: flex;*/
     justify-content: center;
     align-items: center;
     grid-area: content;
     object-fit: contain;
     background-color: white;
-    /*position: relative;*/
+    position: relative;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+
 }
 
 footer {
@@ -95,7 +103,6 @@ footer {
 form {
     min-width: 30%;
     margin: auto;
-    margin-top: 10%;
     padding: 20px;
     max-width: 350px;
     display: grid;
@@ -103,18 +110,6 @@ form {
 
 
 /* ------ UI Elements ------ */
-
-/* from https://www.w3.org/WAI/tutorials/forms/labels/#note-on-hiding-elements*/
-.hidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-}
 
 .formfield {
     margin-bottom: 20px;
@@ -141,3 +136,14 @@ form {
     background-color: #52b788;
 }
 
+/* from https://www.w3.org/WAI/tutorials/forms/labels/#note-on-hiding-elements*/
+.hidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
