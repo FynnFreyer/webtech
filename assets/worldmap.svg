@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="2754" height="1398">
+
+<!-- this was taken from https://commons.wikimedia.org/wiki/File:BlankMap-World.svg -->
+
+<!-- import our custom CSS and also the previously inline defined styles -->
+<?xml-stylesheet type="text/css" href="../assets/worldmap.css"?>
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2754 1398" width="2754" height="1398">
 	<title>World Map</title>
 	<style id="style_css_sheet" type="text/css">
 

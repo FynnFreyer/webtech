@@ -4,3 +4,11 @@ object, embed {
     fill: #ececec;
     object-fit: contain;
 }
+
+.oceanxx
+{
+    opacity: 1;
+    fill: #1a6090;
+    stroke: #000000;
+    stroke-width: 0.5;
+}

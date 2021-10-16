@@ -74,10 +74,12 @@ nav ul {
 }
 
 .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     grid-area: content;
     object-fit: contain;
     background-color: white;
-    width: fit-content;
     /*position: relative;*/
 }
 
