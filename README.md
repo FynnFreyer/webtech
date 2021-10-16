@@ -3,6 +3,8 @@
 
 Kooperation zwischen [Younes Abdelwadoud](https://github.com/Lechiffre2110) und [Fynn Freyer](https://github.com/FynnFreyer).
 
+Das Projekt wird auf [Netlify](https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app) gehostet.
+
 # Aufbau der Abgabe
 
 Es gibt verschiedene Seiten
