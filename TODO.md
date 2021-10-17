@@ -1,11 +1,9 @@
 # Zu erledigen
-- [ ] schön machen mit css + responsive!!!
-- [ ] edit Seite mit Dropdown und Möglichkeit neue Reise
-  - color theme 
-  - layout überarbeiten => Edit: Tabelle
-- responsive !!!
-  - *Add* und **Edit** zusammen
-- Quelle Animation 
+- properly implement gridforms
+  - e.g. edit.html grid layout breaks on focusing date
+  - also spacing after the select element is broken
+- color theme 
+- Quelle Animation
 
 ---
 # Ideen: 
