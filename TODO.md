@@ -2,8 +2,11 @@
 - properly implement gridforms
   - e.g. edit.html grid layout breaks on focusing date
   - also spacing after the select element is broken
-- color theme 
-- Quelle Animation
+- map styling  
+  when hovering a path, not everything belonging to that country gets properly highlighted, 
+  e.g. continental US and Alaska
+- color theme
+- add source for welcome animation css on login site
 
 ---
 # Ideen: 

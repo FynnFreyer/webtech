@@ -24,8 +24,10 @@ Es gibt verschiedene Seiten
 Das CSS ist im Ordner `css` und in globales 
 und seitenspezifisches CSS unterschieden.
 
-Globales CSS liegt in `css/style.css`.   
-Seitenspezifisches CSS in einer nach der importierenden Datei benannten Datei im Ordner `css`.
+Globales CSS liegt in `css/style.css` und 
+seitenspezifisches CSS in einer 
+nach der importierenden Datei 
+benannten Datei im Ordner `css`.
 
 
 ## Assets
