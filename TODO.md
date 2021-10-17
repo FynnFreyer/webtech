@@ -6,6 +6,7 @@
 - responsive !!!
   - *Add* und **Edit** zusammen
 - Quelle Animation 
+- evtl Mobile CSS in eigene Datei auslagern
 
 ---
 # Ideen: 
