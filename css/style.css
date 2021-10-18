@@ -1,3 +1,12 @@
+html {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -19,7 +28,7 @@ main {
     row-gap: 5vh;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 800px) {
     main {
         grid-template-columns: 10px 1fr 10px;
     }
@@ -30,7 +39,7 @@ header {
     align-items: center;
     grid-area: header;
     background-color: white;
-    padding: 0.5% 5% 0.5% 5%;
+    padding: 0.5vh 5vw;
     font-size: 3vh;
 }
 
@@ -59,6 +68,7 @@ header nav ul li {
 /*}*/
 
 header nav ul li a, header nav ul li a:visited {
+    padding: 1em;
     color: black;
     text-decoration: none;
     outline-style: none;
@@ -66,6 +76,7 @@ header nav ul li a, header nav ul li a:visited {
 
 header nav ul li a:hover {
     color: #8f8f8f;
+    background-color: #3c3c3c;
 }
 
 
@@ -73,8 +84,7 @@ header nav ul li a:hover {
     grid-area: content;
     object-fit: contain;
     background-color: white;
-    padding: 5%;
-
+    padding: 5vh 5vw;
 }
 
 .content form {
@@ -82,16 +92,14 @@ header nav ul li a:hover {
     max-width: 60%;
     display: flex;
     flex-flow: column wrap;
-    row-gap: 2.5%;
+    row-gap: 2.5vh;
 }
-/*.content form select {*/
-/*    margin-top: 0;*/
-/*    margin-bottom: 1.8%;*/
-/*    !*place-self: stretch;*!*/
-/*}*/
+/*form labels could be styled like this*/
+/*https://medium.com/@eugeniolujambio/accessible-css-only-floating-labels-74bf9173bc5f*/
+
 .content form.form-grid {
     display: grid;
-    column-gap: 2.5%;
+    column-gap: 2.5vw;
 }
 
 footer {
@@ -102,7 +110,7 @@ footer {
 
 /* ------ UI Elements ------ */
 .formfield {
-    margin-bottom: 2.5%;
+    /*margin-bottom: 2.5%;*/
     padding: 12px 20px;
     border-radius: 0;
     border: 1px solid black;

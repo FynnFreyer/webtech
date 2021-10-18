@@ -1,4 +1,6 @@
 .content form.form-grid {
+    /*TODO look at minmax property*/
+    grid-template-columns: 300px 300px;
     grid-template-areas:
         "header   header"
         "name     name"
