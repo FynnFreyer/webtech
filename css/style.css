@@ -30,8 +30,10 @@ main {
 
 
 header {
-    display: flex;
     grid-area: header;
+    height: 7.5vh;
+    display: flex;
+    align-content: center;
     background-color: white;
     padding: 0.5vh 5vw;
     font-size: 3vh;
@@ -188,6 +190,7 @@ footer {
 
     header {
         justify-items: center;
+        height: 9vh;
     }
 
     .logowrapper {
