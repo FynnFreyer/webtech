@@ -18,7 +18,7 @@ body {
 main {
     display: grid;
     grid-template-columns: 1fr 8fr 1fr;
-    grid-template-rows: auto auto max-content;
+    grid-template-rows: auto auto auto;
     justify-content: space-evenly;
     align-content: space-evenly;
     grid-template-areas:
@@ -28,17 +28,12 @@ main {
     row-gap: 5vh;
 }
 
-@media only screen and (max-width: 600px) {
-    main {
-        grid-template-columns: 20px 1fr 20px;
-    }
-}
 
 header {
     display: flex;
     grid-area: header;
     background-color: white;
-    padding: 0.5vh 5vw 0.5vh 5vw;
+    padding: 0.5vh 5vw;
     font-size: 3vh;
 }
 
@@ -182,13 +177,24 @@ footer {
 
 
 /* ------ Mobile ------ */
+
 @media screen and (max-width: 768px) {
     .content form {
-        margin-top: 30vh;
         min-width: 80vw;
     }
+    main {
+        grid-template-columns: 20px 1fr 20px;
+    }
 
-    .bigNav {
+    header {
+        justify-items: center;
+    }
+
+    .logowrapper {
+        justify-content: center;
+    }
+
+    header nav {
         display: none;
     }
 
@@ -209,6 +215,9 @@ footer {
     }
 
 @media screen and (min-width: 992px) {
+    header {
+        font-size: 2vh;
+    }
     .mobileNav {
         display: none;
     }
