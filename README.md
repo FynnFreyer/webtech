@@ -35,3 +35,5 @@ benannten Datei im Ordner `css`.
 Für die Weltkarte wird eine SVG-Datei verwendet, welche auf einem 
 [Werk in den Wikimedia-Commons](https://commons.wikimedia.org/wiki/File:BlankMap-World.svg) basiert.
 Die Datei wird als `object` eingebunden und dann durch CSS gestyled und befindet sich in `assets/worldmap.svg`.
+
+Die Icons für das mobile Navigationsmenü (`assets/*.png`) sind von [Freepik](https://www.freepik.com/) auf [www.flaticon.com](https://www.flaticon.com/) erstellt worden.

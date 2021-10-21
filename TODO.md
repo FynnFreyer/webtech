@@ -1,4 +1,6 @@
 # Zu erledigen
+- mobile nav darf nicht in den content ragen (man kann den footer nicht sehen)
+- grid form scaling ist wieder kaputt
 - [ ] schön machen mit css + responsive!!!
 - [ ] edit Seite mit Dropdown und Möglichkeit neue Reise
   - color theme 
