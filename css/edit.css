@@ -3,11 +3,12 @@
 
     /* grid-template-columns: 250px 250px; */
     grid-template-areas:
-        "header   header"
-        "name     name"
-        "start    end"
-        "country  country"
-        "save     delete";
+        "header       header"
+        "name-select  name-select"
+        "name         name"
+        "start        end"
+        "country      country"
+        "save         delete";
 }
 
 .content form h1 {
@@ -19,12 +20,16 @@
     grid-area: header;
 }
 
+#name-select {
+    grid-area: name-select;
+}
+
 #name {
     grid-area: name;
 }
+
 #start {
     grid-area: start;
-    margin-right: 5px;
 }
 #end {
     grid-area: end;
@@ -34,7 +39,6 @@
 }
 #save {
     grid-area: save;
-    margin-right: 5px;
 }
 #delete {
     grid-area: delete;

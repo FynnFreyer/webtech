@@ -1,3 +1,12 @@
+html {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -9,7 +18,7 @@ body {
 main {
     display: grid;
     grid-template-columns: 1fr 8fr 1fr;
-    grid-template-rows: auto auto auto;
+    grid-template-rows: auto auto max-content;
     justify-content: space-evenly;
     align-content: space-evenly;
     grid-template-areas:
@@ -29,7 +38,7 @@ header {
     display: flex;
     grid-area: header;
     background-color: white;
-    padding: 0.5% 5% 0.5% 5%;
+    padding: 0.5vh 5vw 0.5vh 5vw;
     font-size: 3vh;
 }
 
@@ -41,9 +50,8 @@ header {
 }
 
 .logo {
-    /*TODO no % margins*/
-    margin-left: 10%;
-    margin-right: 5%;
+    margin-left: 10vw;
+    margin-right: 5vw;
     margin-top: 0;
     object-fit: contain;
     height: 40px;
@@ -87,16 +95,18 @@ nav ul li a:hover {
     grid-area: content;
     object-fit: contain;
     background-color: white;
-    padding: 5%;
+    padding: 5vh 5vw 5vh 5vw;
 
 }
 
 .content form {
     margin: auto;
-    max-width: 30%;
+    margin-bottom: 2.5vh;
+    max-width: 30vw;
+    min-width: 30vw;
     display: flex;
     flex-flow: column wrap;
-    row-gap: 2.5%;
+    row-gap: 2.5vh;
 }
 /*.content form select {*/
 /*    margin-top: 0;*/
@@ -105,12 +115,18 @@ nav ul li a:hover {
 /*}*/
 .content form.form-grid {
     display: grid;
-    grid-auto-rows: min-content;
-    column-gap: 2.5%;
+    column-gap: 2.5vw;
+}
+.content form h1 {
+    margin: 0;
+    padding: 0;
 }
 
 footer {
     grid-area: footer;
+    display: flex;
+    justify-content: center;
+    align-content: end;
 }
 
 
@@ -167,8 +183,8 @@ footer {
 
 /* ------ Mobile ------ */
 @media screen and (max-width: 768px) {
-    form {
-        margin-top: 30%;
+    .content form {
+        margin-top: 30vh;
         min-width: 80vw;
     }
 
@@ -182,7 +198,7 @@ footer {
 @media screen
     and (min-width: 769px)
     and (max-width: 992px) {
-        form {
+        .content form {
             min-width: 50vw;
         }
 

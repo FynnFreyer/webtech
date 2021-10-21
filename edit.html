@@ -26,13 +26,15 @@
     <div class="content">
         <form id="edit-form" class="form-grid" action="#">
             <h1 id="formheader">Reise editieren</h1>
-            <label for="name" style="display: none;">Startdatum</label>
-            <select id="name" placeholder="Name der Reise" class="formfield" required>
+            <label for="name-select" style="display: none;">Reise zum Editieren</label>
+            <select id="name-select" placeholder="Name der Reise" class="formfield" required>
                 <option disabled selected>Name der Reise</option>
                 <option>alle</option>
                 <option>möglichen</option>
                 <option>Reisen</option>
             </select>
+            <label for="name" style="display: none;">Reisename</label>
+            <input type="text" id="name" placeholder="Name der Reise" class="formfield" required/>
             <label for="start" class="hidden">Startdatum</label>
             <input type="text" id="start" placeholder="Startdatum" class="formfield" onfocus="(this.type='date')" required>
             <label for="end" class="hidden">Enddatum</label>
