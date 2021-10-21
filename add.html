@@ -23,12 +23,14 @@
             </ul>
         </nav>
     </header>
-        <form id="add-form" action="#"class="content">
+    <div class="content">
+        <form id="add-form" action="#">
             <h1 class="formtitle">Reise hinzufügen</h1>
             <input type="text" id="reisename" placeholder="Name der Reise" class="formfield" required/>
             <input type="text" id="start" placeholder="Startdatum" class="formfield" onfocus="(this.type='date')"
                    required/>
-            <input type="text" id="ende" placeholder="Enddatum" class="formfield" onfocus="(this.type='date')" required/>
+            <input type="text" id="ende" placeholder="Enddatum" class="formfield" onfocus="(this.type='date')"
+                   required/>
             <select id="country" class="formfield" required>
                 <option disabled selected>Reiseland</option>
                 <option>alle</option>
@@ -37,8 +39,11 @@
             </select>
             <input type="submit" class="button" value="Hinzufügen">
         </form>
+    </div>
     <footer>
         <!-- Mobile Nav -->
+        <div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+
         <nav class="mobileNav">
             <ul>
                 <!-- TODO only display links if logged in -->
@@ -46,6 +51,7 @@
                 <li><a href="add.html"><img src="assets/plus.png"></a></li>
                 <li><a href="overview.html"><img src="assets/map.png"></a></li>
                 <li><a href="edit.html"><img src="assets/editing.png"></a></li>
+                <li><a href="index.html"><img src="assets/login.png"></a></li>
             </ul>
         </nav>
     </footer>
