@@ -48,7 +48,7 @@ header nav {
     flex-grow: 3;
     align-content: center;
     font-family: monospace;
-    font-size: 15px;
+    font-size: 2vh;
 }
 
 nav ul li a, nav ul li a:visited {
@@ -76,8 +76,7 @@ nav ul {
 .content {
     grid-area: content;
     object-fit: contain;
-    background-color: white;
-    width: fit-content;
+    width: 90vw;
 }
 
 footer {
@@ -96,6 +95,7 @@ form {
     padding: 20px;
     max-width: 350px;
     display: grid;
+    background-color: white;
 }
 
 

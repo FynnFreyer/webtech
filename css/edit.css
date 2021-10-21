@@ -1,6 +1,7 @@
 .content form.form-grid {
     /*TODO look at minmax property*/
-    grid-template-columns: 300px 300px;
+
+    /* grid-template-columns: 250px 250px; */
     grid-template-areas:
         "header   header"
         "name     name"
@@ -17,6 +18,7 @@
 }
 #start {
     grid-area: start;
+    margin-right: 5px;
 }
 #end {
     grid-area: end;
@@ -26,7 +28,25 @@
 }
 #save {
     grid-area: save;
+    margin-right: 5px;
 }
 #delete {
     grid-area: delete;
 }
+
+#delete:hover {
+    background-color: #c51616;
+}
+
+/* Grid Mobile */
+@media screen and(max-width: 768px){
+    .content form.form-grid {
+
+    }
+
+
+}
+
+/* Grid Tablet */
+
+/* Grid PC */

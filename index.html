@@ -16,14 +16,15 @@
             <ul>
                 <!-- TODO only display links if logged in -->
                 <!-- look for session cookie?! -->
-                <li><a href="/overview.html">Karte</a></li>
-                <li><a href="/add.html">Hinzufügen</a></li>
-                <li><a href="/edit.html">Änderungen</a></li>
-                <li><a href="/">Login</a></li>
+                <li><a href="overview.html">Karte</a></li>
+                <li><a href="add.html">Hinzufügen</a></li>
+                <li><a href="edit.html">Änderungen</a></li>
+                <li><a href="#">Login</a></li>
             </ul>
         </nav>
     </header>
-    <form id="login-form" class="content" action="#">
+    <div class="content">
+    <form id="login-form" action="#">
         <h1>Login</h1>
         <label for="email" class="hidden">E-Mail-Adresse</label>
         <input type="email" id="email" placeholder="E-Mail-Adresse" class="formfield" required>
@@ -31,6 +32,7 @@
         <input type="password" id="password" class="formfield" placeholder="Passwort" required>
         <input type="submit" class="button" value="Einloggen">
     </form>
+    </div>
     <footer>
         <div class="welcomewrapper">
             <div class="welcome">Willkommen!</div>
@@ -41,9 +43,9 @@
             <ul>
                 <!-- TODO only display links if logged in -->
                 <!-- look for session cookie?! -->
-                <li><img src="assets/plus.png"></li>
-                <li><img src="assets/map.png"></li>
-                <li><img src="assets/editing.png"></li>
+                <li><a href="add.html"><img src="assets/plus.png"></a></li>
+                <li><a href="overview.html"><img src="assets/map.png"></a></li>
+                <li><a href="edit.html"><img src="assets/editing.png"></a></li>
             </ul>
         </nav>
     </footer>
