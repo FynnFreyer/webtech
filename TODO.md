@@ -1,14 +1,13 @@
 # Zu erledigen
 - mobile nav darf nicht in den content ragen (man kann den footer nicht sehen)
 - grid form scaling ist wieder kaputt
-- [ ] schön machen mit css + responsive!!!
-- [ ] edit Seite mit Dropdown und Möglichkeit neue Reise
+- [x] schön machen mit css + responsive!!!
+- [x] edit Seite mit Dropdown und Möglichkeit neue Reise
   - color theme 
   - layout überarbeiten => Edit: Tabelle
 - responsive !!!
-  - *Add* und **Edit** zusammen
-- Quelle Animation 
-- evtl Mobile CSS in eigene Datei auslagern
+  - Mobile und PC gut => **Tablet screen size noch ausbaufähig** (Nav bar, Form size)
+- [ ] Quelle Animation 
 
 ---
 # Ideen: 

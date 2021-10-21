@@ -82,7 +82,7 @@ nav ul li a, nav ul li a:visited {
 }
 
 nav ul li a:hover {
-    color: white;
+    text-decoration: overline;
 }
 
 
@@ -132,6 +132,9 @@ footer {
     padding: 12px 20px;
     border-radius: 0;
     border: 1px solid black;
+    /* Cross browser drop down fix */
+    -webkit-appearance: none;
+    -moz-appearance: none;
 
 }
 
@@ -229,4 +232,4 @@ footer {
     }
 }
 
-/* TODO disable Safari overwriting CSS for dropdowns */
+/* disable Safari overwriting CSS for dropdowns */
