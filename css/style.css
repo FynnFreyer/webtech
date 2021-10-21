@@ -91,7 +91,6 @@ nav ul li a:hover {
 .content {
     grid-area: content;
     object-fit: contain;
-    background-color: white;
     padding: 5vh 5vw 5vh 5vw;
 
 }
@@ -99,11 +98,12 @@ nav ul li a:hover {
 .content form {
     margin: auto;
     margin-bottom: 2.5vh;
-    max-width: 30vw;
     min-width: 30vw;
     display: flex;
     flex-flow: column wrap;
     row-gap: 2.5vh;
+    background-color: white;
+    padding: 30px;
 }
 /*.content form select {*/
 /*    margin-top: 0;*/
@@ -182,7 +182,7 @@ footer {
 
 @media screen and (max-width: 768px) {
     .content form {
-        min-width: 80vw;
+        min-width: 80%;
     }
     main {
         grid-template-columns: 20px 1fr 20px;
@@ -225,3 +225,11 @@ footer {
         display: none;
     }
 }
+
+@media screen and (min-width: 1200px) {
+    .content form {
+        max-width: 450px;
+    }
+}
+
+/* TODO disable Safari overwriting CSS for dropdowns */
