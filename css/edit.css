@@ -6,6 +6,12 @@
         "country  country"
         "save     delete";
 }
+
+.content form h1 {
+    margin: 0;
+    padding: 0;
+}
+
 #formheader {
     grid-area: header;
 }

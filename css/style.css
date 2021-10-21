@@ -91,6 +91,7 @@ header nav ul li a:hover {
 /*}*/
 .content form.form-grid {
     display: grid;
+    grid-auto-rows: min-content;
     column-gap: 2.5%;
 }
 
