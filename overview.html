@@ -12,14 +12,14 @@
         <div class="logowrapper">
             <h1 class="logo">TravelApp.</h1>
         </div>
-        <nav>
+        <nav class="bigNav">
             <ul>
                 <!-- TODO only display links if logged in -->
                 <!-- look for session cookie?! -->
-                <li><a href="/overview.html">Karte</a></li>
-                <li><a href="/add.html">Hinzufügen</a></li>
-                <li><a href="/edit.html">Änderungen</a></li>
-                <li><a href="/">Login</a></li>
+                <li><a href="overview.html">Karte</a></li>
+                <li><a href="add.html">Hinzufügen</a></li>
+                <li><a href="edit.html">Änderungen</a></li>
+                <li><a href="index.html">Login</a></li>
             </ul>
         </nav>
     </header>
@@ -28,8 +28,18 @@
             <object type="image/svg+xml" data="assets/worldmap.svg">Weltkarte</object>
         </div>
     </div>
-    <footer></footer>
+    <footer>
+        <!-- Mobile Nav -->
+        <nav class="mobileNav">
+            <ul>
+                <!-- TODO only display links if logged in -->
+                <!-- look for session cookie?! -->
+                <li><a href="add.html"><img src="assets/plus.png"></a></li>
+                <li><a href="overview.html"><img src="assets/map.png"></a></li>
+                <li><a href="edit.html"><img src="assets/editing.png"></a></li>
+            </ul>
+        </nav>
+    </footer>
 </main>
-
 </body>
 </html>

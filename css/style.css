@@ -19,37 +19,51 @@ main {
     row-gap: 5vh;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 600px) {
     main {
-        grid-template-columns: 10px 1fr 10px;
+        grid-template-columns: 20px 1fr 20px;
     }
 }
 
 header {
     display: flex;
-    align-items: center;
     grid-area: header;
     background-color: white;
     padding: 0.5% 5% 0.5% 5%;
     font-size: 3vh;
 }
 
-header .logowrapper {
+.logowrapper {
+    margin-top: 5px;
     flex-grow: 2;
+    display: flex;
+    justify-content: left;
 }
+
+.logo {
+    /*TODO no % margins*/
+    margin-left: 10%;
+    margin-right: 5%;
+    margin-top: 0;
+    object-fit: contain;
+    height: 40px;
+}
+
 
 header nav {
     flex-grow: 3;
+    align-content: center;
     font-family: monospace;
+    font-size: 2vh;
 }
 
-header nav ul {
+nav ul {
     display: flex;
     justify-content: space-around;
     align-content: center;
     height: max-content;
 }
-header nav ul li {
+nav ul li {
     list-style: none;
     outline-style: none;
     height: auto;
@@ -58,14 +72,14 @@ header nav ul li {
 /*    background-color: #52b788;*/
 /*}*/
 
-header nav ul li a, header nav ul li a:visited {
+nav ul li a, nav ul li a:visited {
     color: black;
     text-decoration: none;
     outline-style: none;
 }
 
-header nav ul li a:hover {
-    color: #8f8f8f;
+nav ul li a:hover {
+    color: white;
 }
 
 
@@ -79,7 +93,7 @@ header nav ul li a:hover {
 
 .content form {
     margin: auto;
-    max-width: 60%;
+    max-width: 30%;
     display: flex;
     flex-flow: column wrap;
     row-gap: 2.5%;
@@ -103,7 +117,7 @@ footer {
 
 /* ------ UI Elements ------ */
 .formfield {
-    margin-bottom: 2.5%;
+    margin-bottom: 2.5vh;
     padding: 12px 20px;
     border-radius: 0;
     border: 1px solid black;
@@ -137,4 +151,49 @@ footer {
     padding: 0;
     position: absolute;
     width: 1px;
+}
+.mobileNav img {
+    width: 30px;
+}
+
+.mobileNav {
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    background-color: white;
+    width: 100vw;
+}
+
+
+/* ------ Mobile ------ */
+@media screen and (max-width: 768px) {
+    form {
+        margin-top: 30%;
+        min-width: 80vw;
+    }
+
+    .bigNav {
+        display: none;
+    }
+
+}
+
+/* ------Tablet ------ */
+@media screen
+    and (min-width: 769px)
+    and (max-width: 992px) {
+        form {
+            min-width: 50vw;
+        }
+
+        .mobileNav {
+            display: none;
+        }
+
+    }
+
+@media screen and (min-width: 992px) {
+    .mobileNav {
+        display: none;
+    }
 }

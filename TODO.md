@@ -1,12 +1,12 @@
 # Zu erledigen
-- properly implement gridforms
-  - e.g. edit.html grid layout breaks on focusing date
-  - also spacing after the select element is broken
-- map styling  
-  when hovering a path, not everything belonging to that country gets properly highlighted, 
-  e.g. continental US and Alaska
-- color theme
-- add source for welcome animation css on login site
+- [ ] schön machen mit css + responsive!!!
+- [ ] edit Seite mit Dropdown und Möglichkeit neue Reise
+  - color theme 
+  - layout überarbeiten => Edit: Tabelle
+- responsive !!!
+  - *Add* und **Edit** zusammen
+- Quelle Animation 
+- evtl Mobile CSS in eigene Datei auslagern
 
 ---
 # Ideen: 
