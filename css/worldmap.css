@@ -1,22 +1,52 @@
-object {
-    max-width: 95vw;
-    max-height: 80vh;
-    fill: #ececec;
-    cursor: pointer;
-}
-object svg {
-
-}
-
-#DE, #EG {
-    fill: #52b788;
-}
-
-.Australia {
-    fill: #52b788;
-}
-
+/*TODO
+   Hovering e.g. continental USA, does not change fill on Alaska.
+   I tried using the
+        g:hover,  .landxx:hover, .limitxx:hover, .unxx:hover
+   selectors to set a fill like with path:hover,
+   but it didn't behave as expected (e.g. weird issues with northern Canada)
+   */
 
 path:hover {
-    fill: #FCD5CE;
+    fill: #a1a1a1;
 }
+
+.oceanxx, .oceanxx:hover {
+    opacity: 1;
+    fill: #ffffff;
+    stroke: #ececec;
+    stroke-width: 0.5;
+}
+.landxx, .limitxx, .unxx {
+    fill: #c0c0c0;
+    stroke: #ececec;
+    stroke-width: 0.5;
+    fill-rule: evenodd;
+}
+.circlexx, .subxx, .antxx, .noxx {
+    opacity: 0;
+}
+.limitxx, .unxx {
+    opacity: 1;
+}
+
+.untravelled {
+    fill: #c0c0c0;
+}
+.untravelled:hover {
+    fill: #a1a1a1;
+}
+
+.travelled {
+    fill: #52b788;
+}
+.travelled:hover {
+    fill: #52836b;
+}
+
+.es, .de, .us, .is{
+    fill: #52b788;
+}
+.es:hover, .de:hover, .us:hover, .is:hover{
+    fill: #52836b;
+}
+

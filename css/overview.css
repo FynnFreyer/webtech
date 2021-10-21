@@ -1,0 +1,16 @@
+object {
+    min-width: 80%;
+    min-height: 80%;
+}
+
+.content {
+    padding: 0px;
+}
+
+.mapwrapper {
+    display: flex;
+}
+
+svg {
+    border: none;
+}

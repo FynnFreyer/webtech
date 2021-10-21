@@ -1,0 +1,32 @@
+.content form.form-grid {
+    /*TODO look at minmax property*/
+    grid-template-columns: 300px 300px;
+    grid-template-areas:
+        "header   header"
+        "name     name"
+        "start    end"
+        "country  country"
+        "save     delete";
+}
+#formheader {
+    grid-area: header;
+}
+
+#name {
+    grid-area: name;
+}
+#start {
+    grid-area: start;
+}
+#end {
+    grid-area: end;
+}
+#country {
+    grid-area: country;
+}
+#save {
+    grid-area: save;
+}
+#delete {
+    grid-area: delete;
+}
