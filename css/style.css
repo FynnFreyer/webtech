@@ -91,7 +91,8 @@ nav ul li a:hover {
 .content {
     grid-area: content;
     object-fit: contain;
-    padding: 5vh 5vw 5vh 5vw;
+    padding: 5vh 5vw;
+    background-color: white;
 
 }
 
@@ -99,11 +100,10 @@ nav ul li a:hover {
     margin: auto;
     margin-bottom: 2.5vh;
     min-width: 30vw;
+    max-width: 60vw;
     display: flex;
     flex-flow: column wrap;
     row-gap: 2.5vh;
-    background-color: white;
-    padding: 30px;
 }
 /*.content form select {*/
 /*    margin-top: 0;*/

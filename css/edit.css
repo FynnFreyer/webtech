@@ -1,7 +1,7 @@
 .content form.form-grid {
     /*TODO look at minmax property*/
 
-    /* grid-template-columns: 250px 250px; */
+     /*grid-template-columns: 250px 250px; */
     grid-template-areas:
         "header       header"
         "name-select  name-select"
@@ -9,11 +9,6 @@
         "start        end"
         "country      country"
         "save         delete";
-}
-
-.content form h1 {
-    margin: 0;
-    padding: 0;
 }
 
 #formheader {
@@ -49,12 +44,18 @@
 }
 
 /* Grid Mobile */
-@media screen and(max-width: 768px){
+@media screen and (max-width: 768px) {
     .content form.form-grid {
-
+        grid-template-areas:
+            "header"
+            "name-select"
+            "name"
+            "start"
+            "end"
+            "country"
+            "save"
+            "delete";
     }
-
-
 }
 
 /* Grid Tablet */
