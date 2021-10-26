@@ -10,8 +10,19 @@
 - [ ] Quelle Animation 
 
 ---
-# Ideen: 
-- Tabellen Übersicht unter Karte 
+# To Do Abgabe 2
+- Login mit Email: huehne@htw-berlin.de und Passwort: hunter2
+- Logout und Redirect zu Login Seite
+- Interaktive Karte mit besuchten Orten: 
+  - Nicht besuchte Länder grau; besuchte frei bzw. Karte scheint durch 
+  - Benutzung von Leafletjs und geojson.xyz (bspw. "admin0") für Karte 
+  - Besuchte Länder in Local Storage speichern => Objekte in JSON umwandeln und in Local Storage speichern und anschließend wieder in JS Objekte umwandeln (json stringify & json parse )
+- Länder Dropdown befüllen mit Werten aus geojson 
+
+---
+# Ideen:
+- Tabellen Übersicht unter Karte
 - Tooltip bei Hover über Land mit Reise; Handy andere Lösung überlegen
-- Statistik bspw. Tage verbracht 
+- Statistik bspw. Tage verbracht
 - Edit: Dropdown mit Reise auswählen nach Reisename oder neue Reise (unique) 
+ 
