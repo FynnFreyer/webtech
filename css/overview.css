@@ -14,3 +14,10 @@ object {
 svg {
     border: none;
 }
+
+/* ------ Leaflet ------ */
+#mapid {
+    height: 600px ;
+}
+
+

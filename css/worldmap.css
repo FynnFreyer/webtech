@@ -5,7 +5,7 @@
    selectors to set a fill like with path:hover,
    but it didn't behave as expected (e.g. weird issues with northern Canada)
    */
-
+/*
 path:hover {
     fill: #a1a1a1;
 }
@@ -49,4 +49,7 @@ path:hover {
 .es:hover, .de:hover, .us:hover, .is:hover{
     fill: #52836b;
 }
+
+*/
+
 

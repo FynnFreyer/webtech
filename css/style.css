@@ -92,7 +92,6 @@ nav ul li a:hover {
     grid-area: content;
     object-fit: contain;
     padding: 5vh 5vw;
-    background-color: white;
 
 }
 
@@ -104,6 +103,8 @@ nav ul li a:hover {
     display: flex;
     flex-flow: column wrap;
     row-gap: 2.5vh;
+    background-color: white;
+    padding: 20px;
 }
 /*.content form select {*/
 /*    margin-top: 0;*/
