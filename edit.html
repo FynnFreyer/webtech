@@ -24,30 +24,29 @@
         </nav>
     </header>
     <div class="content">
-        <form id="edit-form" action="#"> <!-- class="form-grid" -->
+        <form id="edit-form"> <!-- class="form-grid" -->
             <h1 id="formheader">Reise editieren</h1>
             <label for="name-select" style="display: none;">Reise zum Editieren</label>
             <select id="name-select" placeholder="Name der Reise" class="formfield" required>
                 <option disabled selected>Name der Reise</option>
-                <option>alle</option>
-                <option>möglichen</option>
-                <option>Reisen</option>
             </select>
-            <label for="name" style="display: none;">Reisename</label>
-            <input type="text" id="name" placeholder="Name der Reise" class="formfield" required/>
+
+            <label for="reisename" class="hidden">Startdatum</label>
+            <input type="text" id="reisename" placeholder="Reisename" class="formfield"required disabled>
             <label for="start" class="hidden">Startdatum</label>
-            <input type="text" id="start" placeholder="Startdatum" class="formfield" onfocus="(this.type='date')" required>
-            <label for="end" class="hidden">Enddatum</label>
-            <input type="text" id="end" placeholder="Enddatum" class="formfield" onfocus="(this.type='date')" required>
-            <label for="country" class="hidden">Reiseland</label>
-            <select id="country" class="formfield" required>
+            <input type="text" id="start" placeholder="Startdatum" class="formfield" onfocus="(this.type='date')" required disabled>
+            <label for="ende" class="hidden">Enddatum</label>
+            <input type="text" id="ende" placeholder="Enddatum" class="formfield" onfocus="(this.type='date')" required disabled>
+            <label for="land" class="hidden">Reiseland</label>
+            <select id="land" class="formfield" required disabled>
                 <option disabled selected>Reiseland</option>
-                <option>alle</option>
-                <option>möglichen</option>
-                <option>Länder</option>
+                <option value="DE">Deutschland</option>
+                <option value="FR">Frankreich</option>
+                <option value="IT">Italien</option>
+                <option value="ES">Spanien</option>
             </select>
-            <input type="submit" id="save" class="button" value="Speichern">
-            <input type="submit" id="delete" class="button" value="Löschen">
+            <input type="submit" id="save" class="button" value="Speichern" disabled>
+            <input type="submit" id="delete" class="button" value="Löschen" disabled>
         </form>
     </div>
     <footer>
@@ -68,4 +67,7 @@
 </main>
 
 </body>
+
+<!-- API -->
+<script language="javascript" type="text/javascript" src="js/api.js"></script>
 </html>

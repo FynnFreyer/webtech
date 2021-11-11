@@ -24,20 +24,21 @@
         </nav>
     </header>
     <div class="content">
-        <form id="add-form" action="#">
+        <form id="add-form">
             <h1 class="formtitle">Reise hinzufügen</h1>
             <input type="text" id="reisename" placeholder="Name der Reise" class="formfield" required/>
             <input type="text" id="start" placeholder="Startdatum" class="formfield" onfocus="(this.type='date')"
                    required/>
             <input type="text" id="ende" placeholder="Enddatum" class="formfield" onfocus="(this.type='date')"
                    required/>
-            <select id="country" class="formfield" required>
+            <select id="land" class="formfield" required>
                 <option disabled selected>Reiseland</option>
-                <option>alle</option>
-                <option>möglichen</option>
-                <option>Länder</option>
+                <option value="DE">Deutschland</option>
+                <option value="FR">Frankreich</option>
+                <option value="IT">Italien</option>
+                <option value="ES">Spanien</option>
             </select>
-            <input type="submit" class="button" value="Hinzufügen">
+            <input type="submit" class="button" value="Hinzufügen" id="reiseErstellen">
         </form>
     </div>
     <footer>
@@ -56,6 +57,7 @@
         </nav>
     </footer>
 </main>
+<script language="javascript" type="text/javascript" src="js/api.js"></script>
 
 
 </body>

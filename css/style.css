@@ -12,7 +12,7 @@ body {
     padding: 0;
 
     font-family: Helvetica, sans-serif;
-    background-color: #FCD5CE;
+    background-color: #72DDF7;
 }
 
 main {
@@ -142,7 +142,7 @@ footer {
 }
 
 .formfield:hover {
-    border: 1px solid #FCD5CE;
+    border: 1px solid #72DDF7;
 }
 
 /* Buttons */

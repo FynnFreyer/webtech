@@ -26,11 +26,15 @@ function readTextFile(file, callback) {
     rawFile.send(null);
 }
 
+/*
+
 readTextFile("../assets/map.geojson", function(text){
    var data = JSON.parse(text);
     L.geoJSON(data).addTo(mymap);
 });
 
 console.log(geojson);
+
+ */
 
 //L.geoJSON(featureCollection).addTo(map);
