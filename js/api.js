@@ -134,9 +134,6 @@ function loadFromLocalStorage(key) {
 
 
 
-
-
-
 //Testcode
 //const trip1 = createTrip("Reise nach USA wurde geändert", "USAAA", "21.10.2020", "01.11.2020");
 if (document.getElementById("name-select") != null) {

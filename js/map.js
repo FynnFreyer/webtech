@@ -13,28 +13,54 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     accessToken: 'pk.eyJ1IjoiaGVpZG9sZWluOTkiLCJhIjoiY2t2OXUzc2t0MDh2ZjJ2cGdrYm5vMWdsNSJ9.CvO5TfaWDYRrJtdqczwQDQ'
 }).addTo(mymap);
 
-//Read from JSON file => https://newbedev.com/how-to-read-an-external-local-json-file-in-javascript
-function readTextFile(file, callback) {
-    var rawFile = new XMLHttpRequest();
-    rawFile.overrideMimeType("application/json");
-    rawFile.open("GET", file, true);
-    rawFile.onreadystatechange = function() {
-        if (rawFile.readyState === 4 && rawFile.status == "200") {
-            callback(rawFile.responseText);
+//Style Black
+var countriesStyle = {
+    "color": "#000000",
+    "weight": 2
+};
+
+//Filter visited
+
+
+let visitedCoutriesArray = getVisitedCountries();
+//GeoJSON
+L.geoJson(geo, {
+    style: countriesStyle,
+    filter: function(feature, layer) {
+        var visited = false;
+        for (let i = 0; i < visitedCoutriesArray.length; i++) {
+            if (feature.properties.name == visitedCoutriesArray[i]) {
+                visited = true;
+            }
+        }
+
+        if (visited == true) {
+            return false;
+        } else {
+            return true;
+        }
+
+    }
+}).addTo(mymap);
+
+
+//Get visited countries from local storage
+function getVisitedCountries() {
+    var visitedCountries = [];
+    for (const key in localStorage) {
+        if (key != "length" && key != "clear" && key != "getItem" && key != "key" && key != "removeItem" && key != "setItem") {
+            let trip = loadFromLocalStorage(key);
+            visitedCountries.push(trip.country);
         }
     }
-    rawFile.send(null);
+    console.log(visitedCountries)
+    return visitedCountries;
 }
 
-/*
 
-readTextFile("../assets/map.geojson", function(text){
-   var data = JSON.parse(text);
-    L.geoJSON(data).addTo(mymap);
-});
+function loadFromLocalStorage(key) {
+    let object = JSON.parse(localStorage.getItem(key));
+    return object;
+}
 
-console.log(geojson);
 
- */
-
-//L.geoJSON(featureCollection).addTo(map);
