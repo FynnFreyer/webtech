@@ -23,6 +23,7 @@ async function login() {
     if (emailInput == email && passwordInput == password) {
         status.innerHTML = "Login erfolgreich!";
         status.style.color = "green";
+        localStorage.setItem('login', 'True');
         await sleep(2000);
         window.location.href = 'overview.html';
     } else {

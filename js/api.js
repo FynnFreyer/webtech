@@ -75,7 +75,7 @@ if (deleteBtn != null) {
 function loadTrips() {
     let dropdownTrips = document.getElementById("name-select");
     for (const key in localStorage) {
-        if (key != "length" && key != "clear" && key != "getItem" && key != "key" && key != "removeItem" && key != "setItem") {
+        if (key != "length" && key != "clear" && key != "getItem" && key != "key" && key != "removeItem" && key != "setItem" && key != "login") {
             var option = document.createElement("OPTION");
             option.innerHTML = key;
             option.value = key;
@@ -132,10 +132,21 @@ function loadFromLocalStorage(key) {
 }
 
 
-
-
-//Testcode
-//const trip1 = createTrip("Reise nach USA wurde geändert", "USAAA", "21.10.2020", "01.11.2020");
 if (document.getElementById("name-select") != null) {
     loadTrips();
 }
+
+
+//LOGOUT
+let loginStatus = localStorage.getItem('login');
+if (loginStatus == 'True') {
+    document.getElementById("Login").innerHTML = "Ausloggen";
+    document.getElementById("Login").style.color = "red";
+
+    document.getElementById("Login").addEventListener('click', () => {
+        localStorage.setItem('login', 'False');
+    });
+
+
+}
+

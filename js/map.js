@@ -1,9 +1,4 @@
-
-
 var mymap = L.map('mapid').setView([51.505, -0.09], 2);
-
-//var featureCollection = JSON.parse(dataFile);
-
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
@@ -20,8 +15,6 @@ var countriesStyle = {
 };
 
 //Filter visited
-
-
 let visitedCoutriesArray = getVisitedCountries();
 //GeoJSON
 L.geoJson(geo, {
@@ -44,11 +37,11 @@ L.geoJson(geo, {
 }).addTo(mymap);
 
 
-//Get visited countries from local storage
+//Get visited countries from local storage and save in array
 function getVisitedCountries() {
     var visitedCountries = [];
     for (const key in localStorage) {
-        if (key != "length" && key != "clear" && key != "getItem" && key != "key" && key != "removeItem" && key != "setItem") {
+        if (key != "length" && key != "clear" && key != "getItem" && key != "key" && key != "removeItem" && key != "setItem" && key != "login") {
             let trip = loadFromLocalStorage(key);
             visitedCountries.push(trip.country);
         }
@@ -56,7 +49,6 @@ function getVisitedCountries() {
     console.log(visitedCountries)
     return visitedCountries;
 }
-
 
 function loadFromLocalStorage(key) {
     let object = JSON.parse(localStorage.getItem(key));
