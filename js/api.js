@@ -48,8 +48,8 @@ function createTrip(name, start, end, countryISO) {
 //On Change Reise mit gewähltem Key in Form laden und Enable Textfields
 if (dropDownEdit != null) {
     dropDownEdit.addEventListener('change', () => {
-        key = dropDownEdit.value;
-        trip = loadFromLocalStorage(key);
+        let key = dropDownEdit.value;
+        let trip = loadFromLocalStorage(key);
         inputTripName.value = trip.tripname;
         inputTripStart.value = trip.startDate;
         inputTripEnd.value = trip.endDate;
@@ -105,10 +105,10 @@ if (saveBtn != null) {
 }
 
 function editTrip(trip) {
-    newName = document.getElementById("editName").value;
-    newCountry = document.getElementById("editCountry").value;
-    newStart = document.getElementById("editStart").value;
-    newEnd = document.getElementById("editEnd").value;
+    let newName = document.getElementById("editName").value;
+    let newCountry = document.getElementById("editCountry").value;
+    let newStart = document.getElementById("editStart").value;
+    let newEnd = document.getElementById("editEnd").value;
 
     trip.name = newName;
     trip.country = newCountry;
@@ -138,14 +138,14 @@ if (document.getElementById("name-select") != null) {
 }
 
 //Dropdown
-const countryNames = geo.features.map(feature => feature.properties.name);
+const countryNames = geo.features.map(feature => feature.properties.name_long);
 function loadDropdown() {
     let dropdownCountries = document.getElementById("land");
-    for (const country in countryNames) {
-            let option = document.createElement("OPTION");
-            option.innerHTML = country;
-            option.value = country;
-            dropdownCountries.options.add(option);
+    for (let country in countryNames) {
+        let option = document.createElement("OPTION");
+        option.innerHTML = countryNames[country];
+        option.value = countryNames[country];
+        dropdownCountries.options.add(option);
     }
 }
 
