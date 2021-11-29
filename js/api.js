@@ -142,7 +142,7 @@ const countryNames = geo.features.map(feature => feature.properties.name);
 function loadDropdown() {
     let dropdownCountries = document.getElementById("land");
     for (const country in countryNames) {
-            var option = document.createElement("OPTION");
+            let option = document.createElement("OPTION");
             option.innerHTML = country;
             option.value = country;
             dropdownCountries.options.add(option);
