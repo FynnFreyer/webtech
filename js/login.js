@@ -1,4 +1,4 @@
-//User
+//User groß schreiben
 const email = "huehne@htw-berlin.de";
 const password = "hunter2";
 

@@ -84,6 +84,7 @@ function loadTrips() {
     }
 }
 
+
 //Speichert Änderungen an Reise
 if (saveBtn != null) {
     saveBtn.addEventListener('click', () => {
@@ -136,6 +137,19 @@ if (document.getElementById("name-select") != null) {
     loadTrips();
 }
 
+//Dropdown
+const countryNames = geo.features.map(feature => feature.properties.name);
+function loadDropdown() {
+    let dropdownCountries = document.getElementById("land");
+    for (const country in countryNames) {
+            var option = document.createElement("OPTION");
+            option.innerHTML = country;
+            option.value = country;
+            dropdownCountries.options.add(option);
+    }
+}
+
+loadDropdown();
 
 //LOGOUT
 let loginStatus = localStorage.getItem('login');
@@ -146,7 +160,5 @@ if (loginStatus == 'True') {
     document.getElementById("Login").addEventListener('click', () => {
         localStorage.setItem('login', 'False');
     });
-
-
 }
 
