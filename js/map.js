@@ -22,7 +22,7 @@ L.geoJson(geo, {
     filter: function(feature, layer) {
         var visited = false;
         for (let i = 0; i < visitedCoutriesArray.length; i++) {
-            if (feature.properties.name == visitedCoutriesArray[i]) {
+            if (feature.properties.iso_a2 == visitedCoutriesArray[i]) {
                 visited = true;
             }
         }
@@ -37,22 +37,48 @@ L.geoJson(geo, {
 }).addTo(mymap);
 
 
-//Get visited countries from local storage and save in array
 function getVisitedCountries() {
-    var visitedCountries = [];
-    for (const key in localStorage) {
-        if (key != "length" && key != "clear" && key != "getItem" && key != "key" && key != "removeItem" && key != "setItem" && key != "login") {
-            let trip = loadFromLocalStorage(key);
-            visitedCountries.push(trip.country);
-        }
+
+    let visitedCountries = [];
+    let trips = getTrips();
+    for (let trip in trips) {
+        visitedCountries.push(trip.destination);
     }
-    console.log(visitedCountries)
+    console.log(visitedCountries);
     return visitedCountries;
 }
 
-function loadFromLocalStorage(key) {
-    let object = JSON.parse(localStorage.getItem(key));
-    return object;
+async function getTrips() {
+    let email = getEmail();
+    let URL = "URLofBackend.com/travels?email=" + email;
+    let response = fetch(URL, {
+        "method" : "GET",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    });
+
+    if (JSON.parse((await response).status) == 200) {
+        console.log("Reise erfolgreich hinzugefügt.");
+        return JSON.parse((await response).json()); //Backend has to return an array of trips
+    } else {
+        console.log("Reisen konnten nicht ausgelesen werden.")
+        return null;
+    }
+}
+
+function getEmail() {
+    let cookieIndex = document.cookie.indexOf('Session=');
+    if (cookieIndex != -1) {
+        cookieValue = document.cookie
+            .split('; ')
+            .find(row => row.startsWith('Email='))
+            .split('=')[1];
+        return cookieValue;
+    } else {
+        return null;
+    }
 }
 
 

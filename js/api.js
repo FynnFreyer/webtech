@@ -10,6 +10,18 @@ let dropDownEdit = document.getElementById("name-select");
 let deleteBtn = document.getElementById("delete");
 let saveBtn = document.getElementById("save");
 
+// ------ Check Login -------
+function checkLogin() {
+    if (getSessionID() == null) {
+        alert("Sie müssen eingeloggt sein, um diese Seite zu sehen.");
+        window.location.href = "index.html";
+    }
+}
+
+checkLogin()
+
+
+
 //Create Trip
 if (btnNewTrip != null) {
     btnNewTrip.addEventListener('click', () => {
@@ -17,39 +29,19 @@ if (btnNewTrip != null) {
         let start = inputTripStart.value;
         let end = inputTripEnd.value;
         let country = inputTripCountry.value;
-
-        //Überprüfung ob Name schon vergeben => localStorage.getItem() returned null, falls nicht in LS:
-        let nameTaken = localStorage.getItem(tripname);
-        if (nameTaken != null) {
-            alert("Fehler: bereits vergeben");
-        } else {
-            createTrip(tripname, start, end, country);
-        }
+        let user_id = getEmail;
+        let session_id = getSessionID();
+        createTrip(tripname, start, end, country, user_id(), session_id);
     });
-}
-
-function createTrip(name, start, end, countryISO) {
-
-    let trip = {
-        tripname: name,
-        country: countryISO,
-        startDate: start,
-        endDate: end
-    };
-
-    saveToLocalStorage(trip.tripname, trip);
 
 }
-
-//------ Edit Trip ------
-//Funktionsweise: 1. Trip aus Dropdown auswählen (am Anfang Felder disabled) 2. Felder werden mit aktuellen Werten befüllt 3. Änderungen vornehmen 4. Speichern und Reise wird aktualisiert
-//Iteration over LS: https://attacomsian.com/blog/javascript-iterate-over-local-storage-keys
 
 //On Change Reise mit gewähltem Key in Form laden und Enable Textfields
 if (dropDownEdit != null) {
     dropDownEdit.addEventListener('change', () => {
-        let key = dropDownEdit.value;
-        let trip = loadFromLocalStorage(key);
+        let name = dropDownEdit.value;
+        let trips = getTrips();
+        let trip = getTrip(trips, name);
         inputTripName.value = trip.tripname;
         inputTripStart.value = trip.startDate;
         inputTripEnd.value = trip.endDate;
@@ -66,21 +58,20 @@ if (dropDownEdit != null) {
 //On Click Reise mit gewähltem Key aus LS löschen
 if (deleteBtn != null) {
     deleteBtn.addEventListener('click', () => {
-        localStorage.removeItem(dropDownEdit.value);
+        deleteTrip(dropDownEdit.value);
         loadTrips();
     });
 }
 
-//Lädt alle gespeicherten Reisen aus LocalStorage in Dropdown
+//Lädt alle gespeicherten Reisen in Dropdown
 function loadTrips() {
     let dropdownTrips = document.getElementById("name-select");
-    for (const key in localStorage) {
-        if (key != "length" && key != "clear" && key != "getItem" && key != "key" && key != "removeItem" && key != "setItem" && key != "login") {
-            var option = document.createElement("OPTION");
-            option.innerHTML = key;
-            option.value = key;
-            dropdownTrips.options.add(option);
-        }
+    let trips = getTrips();
+    for (let i = 0; i < trips.length; i++) {
+        let option = document.createElement("OPTION");
+        option.innerHTML = trips[i].name;
+        option.value = name;
+        dropdownTrips.options.add(option);
     }
 }
 
@@ -88,48 +79,27 @@ function loadTrips() {
 //Speichert Änderungen an Reise
 if (saveBtn != null) {
     saveBtn.addEventListener('click', () => {
-        let oldTrip = loadFromLocalStorage(dropDownEdit.value);
+        let trips = getTrips();
+        let oldTrip = getTrip(dropDownEdit.value);
         let name = inputTripName.value;
         let start = inputTripStart.value;
         let end = inputTripEnd.value;
         let country = inputTripCountry.value;
+        let newTrip = {
+            tripname: name,
+            country: country,
+            startDate: start,
+            endDate: end
+        };
 
-        if (name !== oldTrip.tripname) {
-            localStorage.removeItem(dropDownEdit.value);
-            createTrip(name, start, end, country);
+        if (name != oldTrip.tripname) {
+            let deleteResponse = deleteTrip(dropDownEdit.value);
+            let createResponse = createTrip(name, start, end, country, getEmail());
         } else {
-            createTrip(name, start, end, country);
+            editTrip(newTrip);
         }
 
     });
-}
-
-function editTrip(trip) {
-    let newName = document.getElementById("editName").value;
-    let newCountry = document.getElementById("editCountry").value;
-    let newStart = document.getElementById("editStart").value;
-    let newEnd = document.getElementById("editEnd").value;
-
-    trip.name = newName;
-    trip.country = newCountry;
-    trip.startDate = newStart;
-    trip.endDate = newEnd;
-
-    saveToLocalStorage(trip.name, trip);
-}
-
-
-//Save & load objects from local storage
-//Arguments to passed (save): unique key for object in local storage and object
-//Arguments to passed (load): key of object in local storage
-
-function saveToLocalStorage(key, object) {
-    localStorage.setItem(key, JSON.stringify(object));
-}
-
-function loadFromLocalStorage(key) {
-    let object = JSON.parse(localStorage.getItem(key));
-    return object;
 }
 
 
@@ -139,17 +109,22 @@ if (document.getElementById("name-select") != null) {
 
 //Dropdown
 const countryNames = geo.features.map(feature => feature.properties.name_long);
+const countryISO = geo.features.map(feature => feature.properties.iso_a2);
 function loadDropdown() {
     let dropdownCountries = document.getElementById("land");
+    let i = 0;
     for (let country in countryNames) {
         let option = document.createElement("OPTION");
         option.innerHTML = countryNames[country];
-        option.value = countryNames[country];
+        option.value = countryISO[i];
         dropdownCountries.options.add(option);
+        i++;
     }
-}
 
-loadDropdown();
+}
+if (inputTripCountry != null) {
+    loadDropdown();
+}
 
 //LOGOUT
 let loginStatus = localStorage.getItem('login');
@@ -161,4 +136,142 @@ if (loginStatus == 'True') {
         localStorage.setItem('login', 'False');
     });
 }
+
+//Legt eine neue Reise an
+async function createTrip(tripname, startDate, endDate, country, user) {
+    let data = {name:tripname, start:startDate, end:endDate, destination:country, user_id:user};
+    //let URL = 'URLofBackend.com/travels?email=' + user_id;
+    let URL = 'https://httpbin.org/post'
+    let response = fetch(URL, {
+        "method" : "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    });
+
+    if (JSON.parse((await response).status) == 200) {
+        console.log("Reise erfolgreich hinzugefügt.");
+    } else {
+        console.log("Reise konnte nicht hinzugefügt werden.");
+    }
+
+}
+
+//Editiert eine vorhandene Reise
+async function editTrip(tripname, startDate, endDate, country, email) {
+    let data = {name: tripname, start:startDate, end:endDate, destination:country, user_id:email};
+    let response = fetch('URLofBackend.com/travels', {
+        "method" : "PUT",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        "body": JSON.stringify({data})
+    })
+
+    if (JSON.parse((await response).status) == 200) {
+        console.log("Reise erfolgreich editiert.")
+    } else {
+        console.log("Reise konnte nicht editiert werden.")
+    }
+}
+
+//Holt alle Reisen von einem Nutzer aus DB
+async function getTrips() {
+    //let sessionID = getSessionID();
+    let email = getEmail();
+    //let URL = "URLofBackend.com/travels?email=" + email;
+    let URL = "https://httpbin.org/get";
+    let response = fetch(URL, {
+        "method" : "GET",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    });
+
+    if (JSON.parse((await response).status) == 200) {
+        console.log("Reise erfolgreich hinzugefügt.");
+        return JSON.parse((await response).json()); //Backend has to return an array of trips
+    } else {
+        console.log("Reisen konnten nicht ausgelesen werden.")
+        return null;
+    }
+}
+
+async function deleteTrip(tripName) {
+    //let sessionID = getSessionID();
+    let email = getEmail();
+    let data = {name:tripName, user_id:email};
+    let response = fetch('URLofBackend.com/travels/delete', {
+        "method" : POST,
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        "body": JSON.stringify({data})
+    });
+
+    if (JSON.parse((await response).status) == 200) {
+        console.log("Reise erfolgreich gelöscht.")
+    } else {
+        console.log("Reise konnte nicht gelöscht werden.")
+    }
+}
+
+function getTrip(trips, tripName) {
+    for (trip in trips) {
+        if (trip.name == tripName) {
+            return trip;
+        }
+    }
+}
+
+// ------ Cookies ------
+
+//Get SessionID => Quelle: https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie
+function getSessionID() {
+    let cookieIndex = document.cookie.indexOf('Session=');
+    if (cookieIndex != -1) {
+        const cookieValue = document.cookie
+            .split('; ')
+            .find(row => row.startsWith('Session='))
+            .split('=')[1];
+        return cookieValue;
+    } else {
+        return null;
+    }
+}
+
+function getEmail() {
+    let cookieIndex = document.cookie.indexOf('Session=');
+    if (cookieIndex != -1) {
+        cookieValue = document.cookie
+            .split('; ')
+            .find(row => row.startsWith('Email='))
+            .split('=')[1];
+        return cookieValue;
+    } else {
+        return null;
+    }
+}
+
+
+let sessionActive = getSessionID();
+if (sessionActive != null) {
+    document.getElementById("Login").innerHTML = "Ausloggen";
+    document.getElementById("Login").style.color = "red";
+    document.getElementById("Login").addEventListener('click', () => {
+        document.cookie = "Session=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+    });
+}
+
+//TEST REQUESTS
+getTrips();
+
+
+
+
 
