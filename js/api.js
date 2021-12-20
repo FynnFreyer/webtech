@@ -1,4 +1,5 @@
 //Create Trip Form
+//Hi
 let inputTripName = document.getElementById("reisename");
 let inputTripCountry = document.getElementById("land");
 let inputTripStart = document.getElementById("start");
