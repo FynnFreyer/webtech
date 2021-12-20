@@ -16,7 +16,7 @@ async function login() {
     let emailInput = document.getElementById("email").value;
     let passwordInput = document.getElementById("password").value;
 
-    const response = await fetch("https://htw-travel-app.herokuapp.com/login", {
+    const response = await fetch("https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/login", {
         "method": "POST",
         headers: {
             'Accept' : '*/*',
