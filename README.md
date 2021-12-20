@@ -1,9 +1,11 @@
 # Webtech
 Übung für den Kurs Webtechnologien bei Knut Hühne an der HTW-Berlin
 
-Kooperation zwischen [Younes Abdelwadoud](https://github.com/Lechiffre2110) und [Fynn Freyer](https://github.com/FynnFreyer).
+Kooperation zwischen [Younes Abdelwadoud](https://github.com/Lechiffre2110) 
+und [Fynn Freyer](https://github.com/FynnFreyer).
 
-Der `deploy`-Branch des Projektes wird auf [Netlify](https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app) gehostet.
+Dieses Projekt wird auf [Netlify](https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app) gehostet 
+und greift auf das [travel-app Backend](https://github.com/FynnFreyer/travel-app) zu.
 
 # Aufbau der Abgabe
 
@@ -32,8 +34,7 @@ benannten Datei im Ordner `css`.
 
 ## Assets
 
-Für die Weltkarte wird eine SVG-Datei verwendet, welche auf einem 
-[Werk in den Wikimedia-Commons](https://commons.wikimedia.org/wiki/File:BlankMap-World.svg) basiert.
-Die Datei wird als `object` eingebunden und dann durch CSS gestyled und befindet sich in `assets/worldmap.svg`.
+Für die Weltkarte wird eine GEO-JSON verwendet.
 
-Die Icons für das mobile Navigationsmenü (`assets/*.png`) sind von [Freepik](https://www.freepik.com/) auf [www.flaticon.com](https://www.flaticon.com/) erstellt worden.
+Die Icons für das mobile Navigationsmenü (`assets/*.png`) sind von [Freepik](https://www.freepik.com/) 
+auf [www.flaticon.com](https://www.flaticon.com/) erstellt worden.
