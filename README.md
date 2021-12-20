@@ -34,7 +34,7 @@ benannten Datei im Ordner `css`.
 
 ## Assets
 
-Für die Weltkarte wird eine GEO-JSON verwendet.
+Für die Weltkarte wird eine GEO-JSON Datei verwendet.
 
 Die Icons für das mobile Navigationsmenü (`assets/*.png`) sind von [Freepik](https://www.freepik.com/) 
 auf [www.flaticon.com](https://www.flaticon.com/) erstellt worden.
