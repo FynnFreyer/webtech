@@ -1,5 +1,5 @@
 # Webtech
-Übung für den Kurs Webtechnologien bei Knut Hühne an der HTW-Berlin
+Übung für den Kurs Webtechnologien bei [Knut Hühne](https://github.com/k-nut/) an der HTW-Berlin.
 
 Kooperation zwischen [Younes Abdelwadoud](https://github.com/Lechiffre2110) 
 und [Fynn Freyer](https://github.com/FynnFreyer).
