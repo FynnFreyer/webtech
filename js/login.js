@@ -22,6 +22,7 @@ async function login() {
             'Accept' : '*/*',
             'Content-Type': 'application/json'
         },
+        credentials: 'same-origin',
         body: JSON.stringify({
             "email": emailInput,
             "password": passwordInput
