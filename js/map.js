@@ -50,7 +50,7 @@ function getVisitedCountries() {
 
 async function getTrips() {
     let email = getEmail();
-    let URL = "URLofBackend.com/travels?email=" + email;
+    let URL = "https://htw-travel-app.herokuapp.com/travels";
     let response = fetch(URL, {
         "method" : "GET",
         headers: {

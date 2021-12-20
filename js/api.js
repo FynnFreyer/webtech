@@ -21,8 +21,6 @@ function checkLogin() {
 
 checkLogin()
 
-
-
 //Create Trip
 if (btnNewTrip != null) {
     btnNewTrip.addEventListener('click', () => {
@@ -30,8 +28,6 @@ if (btnNewTrip != null) {
         let start = inputTripStart.value;
         let end = inputTripEnd.value;
         let country = inputTripCountry.value;
-        let user_id = getEmail;
-        let session_id = getSessionID();
         createTrip(tripname, start, end, country);
     });
 
@@ -126,16 +122,6 @@ if (inputTripCountry != null) {
     loadDropdown();
 }
 
-//LOGOUT
-let loginStatus = localStorage.getItem('login');
-if (loginStatus == 'True') {
-    document.getElementById("Login").innerHTML = "Ausloggen";
-    document.getElementById("Login").style.color = "red";
-
-    document.getElementById("Login").addEventListener('click', () => {
-        localStorage.setItem('login', 'False');
-    });
-}
 
 //Legt eine neue Reise an
 async function createTrip(tripname, startDate, endDate, country) {
@@ -188,7 +174,7 @@ async function getTrips() {
         }
     });
 
-    if (JSON.parse((await response).status) == 401) {
+    if (JSON.parse((await response).status) == 201) {
         console.log("Reise erfolgreich hinzugefügt.");
         return JSON.parse((await response).json());
     } else {
@@ -198,7 +184,6 @@ async function getTrips() {
 }
 
 async function deleteTrip(tripName) {
-    //let sessionID = getSessionID();
     let email = getEmail();
     let data = {"name":tripName};
     let response = fetch('https://htw-travel-app.herokuapp.com/travels/delete', {
@@ -246,7 +231,7 @@ if (sessionActive != null) {
     document.getElementById("Login").innerHTML = "Ausloggen";
     document.getElementById("Login").style.color = "red";
     document.getElementById("Login").addEventListener('click', () => {
-        document.cookie = "Session=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+        document.cookie = "connect.sid=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
     });
 }
 
