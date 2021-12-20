@@ -129,7 +129,6 @@ async function createTrip(tripname, startDate, endDate, country) {
     let URL = "https://htw-travel-app.herokuapp.com/travels"
     let response = fetch(URL, {
         "method" : "POST",
-        credentials: 'include',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
