@@ -17,32 +17,27 @@ async function login() {
     let passwordInput = document.getElementById("password").value;
     let data = {email:emailInput, password:passwordInput};
 
-    const response = await fetch("https://httpbin.org/post", {
+    const response = await fetch("https://htw-travel-app.herokuapp.com/login", {
         "method": "POST",
         headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Accept' : '*/*',
+            'Content-Type': 'application/json',
+            'Host': 'http://localhost:63342/webtech/index.html'
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify({
+            "email": emailInput,
+            "password": passwordInput
+        })
     });
-
-    console.log(response.json());
 
     if (JSON.parse(response.status) == 200) {
         status.innerHTML = "Login erfolgreich!";
         status.style.color = "green";
-        setEmailCookie(emailInput);
-        setSessionCookie("27634863746346732");
         await sleep(700);
         window.location.href = 'overview.html';
     } else {
         status.innerHTML = "Login fehlgeschlagen. Bitte überprüfen Sie Email Adresse und Passwort.";
         status.style.color = "red";
-    }
-
-    function setEmailCookie(email) {
-        document.cookie = "Email=" + email;
-        console.log("Email Cookie mit Wert Email=" + email + " gesetzt.")
     }
 
     //TODO: remove after backend sets cookie!!

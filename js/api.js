@@ -31,7 +31,7 @@ if (btnNewTrip != null) {
         let country = inputTripCountry.value;
         let user_id = getEmail;
         let session_id = getSessionID();
-        createTrip(tripname, start, end, country, user_id(), session_id);
+        createTrip(tripname, start, end, country);
     });
 
 }
@@ -98,7 +98,6 @@ if (saveBtn != null) {
         } else {
             editTrip(newTrip);
         }
-
     });
 }
 
@@ -138,10 +137,9 @@ if (loginStatus == 'True') {
 }
 
 //Legt eine neue Reise an
-async function createTrip(tripname, startDate, endDate, country, user) {
-    let data = {name:tripname, start:startDate, end:endDate, destination:country, user_id:user};
-    //let URL = 'URLofBackend.com/travels?email=' + user_id;
-    let URL = 'https://httpbin.org/post'
+async function createTrip(tripname, startDate, endDate, country) {
+    let data = {"name":tripname, "start":startDate, "end":endDate, "destination":country};
+    let URL = "https://htw-travel-app.herokuapp.com/travels"
     let response = fetch(URL, {
         "method" : "POST",
         headers: {
@@ -151,7 +149,7 @@ async function createTrip(tripname, startDate, endDate, country, user) {
         body: JSON.stringify(data)
     });
 
-    if (JSON.parse((await response).status) == 200) {
+    if (JSON.parse((await response).status) == 201) {
         console.log("Reise erfolgreich hinzugefügt.");
     } else {
         console.log("Reise konnte nicht hinzugefügt werden.");
@@ -160,15 +158,15 @@ async function createTrip(tripname, startDate, endDate, country, user) {
 }
 
 //Editiert eine vorhandene Reise
-async function editTrip(tripname, startDate, endDate, country, email) {
-    let data = {name: tripname, start:startDate, end:endDate, destination:country, user_id:email};
-    let response = fetch('URLofBackend.com/travels', {
+async function editTrip(tripname, startDate, endDate, country) {
+    let data = {"name": tripname, "start":startDate, "end":endDate, "destination":country};
+    let response = fetch('https://htw-travel-app.herokuapp.com/travels', {
         "method" : "PUT",
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        "body": JSON.stringify({data})
+        body: JSON.stringify({data})
     })
 
     if (JSON.parse((await response).status) == 200) {
@@ -180,10 +178,7 @@ async function editTrip(tripname, startDate, endDate, country, email) {
 
 //Holt alle Reisen von einem Nutzer aus DB
 async function getTrips() {
-    //let sessionID = getSessionID();
-    let email = getEmail();
-    //let URL = "URLofBackend.com/travels?email=" + email;
-    let URL = "https://httpbin.org/get";
+    let URL = "https://htw-travel-app.herokuapp.com/travels";
     let response = fetch(URL, {
         "method" : "GET",
         headers: {
@@ -192,9 +187,9 @@ async function getTrips() {
         }
     });
 
-    if (JSON.parse((await response).status) == 200) {
+    if (JSON.parse((await response).status) == 401) {
         console.log("Reise erfolgreich hinzugefügt.");
-        return JSON.parse((await response).json()); //Backend has to return an array of trips
+        return JSON.parse((await response).json());
     } else {
         console.log("Reisen konnten nicht ausgelesen werden.")
         return null;
@@ -204,8 +199,8 @@ async function getTrips() {
 async function deleteTrip(tripName) {
     //let sessionID = getSessionID();
     let email = getEmail();
-    let data = {name:tripName, user_id:email};
-    let response = fetch('URLofBackend.com/travels/delete', {
+    let data = {"name":tripName};
+    let response = fetch('https://htw-travel-app.herokuapp.com/travels/delete', {
         "method" : POST,
         headers: {
             'Accept': 'application/json',
@@ -233,31 +228,17 @@ function getTrip(trips, tripName) {
 
 //Get SessionID => Quelle: https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie
 function getSessionID() {
-    let cookieIndex = document.cookie.indexOf('Session=');
+    let cookieIndex = document.cookie.indexOf('connect.sid=');
     if (cookieIndex != -1) {
         const cookieValue = document.cookie
             .split('; ')
-            .find(row => row.startsWith('Session='))
+            .find(row => row.startsWith('connect.sid='))
             .split('=')[1];
         return cookieValue;
     } else {
         return null;
     }
 }
-
-function getEmail() {
-    let cookieIndex = document.cookie.indexOf('Session=');
-    if (cookieIndex != -1) {
-        cookieValue = document.cookie
-            .split('; ')
-            .find(row => row.startsWith('Email='))
-            .split('=')[1];
-        return cookieValue;
-    } else {
-        return null;
-    }
-}
-
 
 let sessionActive = getSessionID();
 if (sessionActive != null) {
@@ -269,8 +250,11 @@ if (sessionActive != null) {
 }
 
 //TEST REQUESTS
-getTrips();
+//getTrips();
 
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 
 
