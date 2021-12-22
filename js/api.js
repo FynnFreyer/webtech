@@ -15,7 +15,7 @@ let saveBtn = document.getElementById("save");
 function checkLogin() {
     if (getSessionID() == null) {
         alert("Sie müssen eingeloggt sein, um diese Seite zu sehen.");
-        window.location.href = "index.html";
+        //window.location.href = "index.html";
     }
 }
 
