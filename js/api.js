@@ -175,7 +175,7 @@ async function getTrips() {
         }
     });
 
-    if (JSON.parse((await response).status) == 201) {
+    if (JSON.parse((await response).status) == 200) {
         console.log("Reise erfolgreich hinzugefügt.");
         return JSON.parse((await response).json());
     } else {
