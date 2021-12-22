@@ -63,8 +63,8 @@ if (deleteBtn != null) {
 //Lädt alle gespeicherten Reisen in Dropdown
 function loadTrips() {
     let dropdownTrips = document.getElementById("name-select");
-    let trips = getTrips()
-    console.log(trips);
+    let trips = JSON.parse(getTrips());
+    console.log("Length of trips array is: " + trips.length);
     for (let i = 0; i < trips.length; i++) {
         let option = document.createElement("OPTION");
         option.innerHTML = trips[i].name;
@@ -183,7 +183,7 @@ async function getTrips() {
             console.log(resjson);
         })
 
-    /*
+    /* TODO: error handling
     if (JSON.parse((await response).status) == 200) {
         console.log("Reise erfolgreich ausgelesen.");
         return response.json();
