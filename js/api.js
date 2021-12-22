@@ -63,8 +63,9 @@ if (deleteBtn != null) {
 //Lädt alle gespeicherten Reisen in Dropdown
 function loadTrips() {
     let dropdownTrips = document.getElementById("name-select");
-    let trips = JSON.parse(getTrips());
+    let trips = getTrips();
     console.log("Length of trips array is: " + trips.length);
+    console.log(trips[0]);
     for (let i = 0; i < trips.length; i++) {
         let option = document.createElement("OPTION");
         option.innerHTML = trips[i].name;
