@@ -178,8 +178,8 @@ async function getTrips() {
     if (JSON.parse((await response).status) == 200) {
         console.log("Reise erfolgreich ausgelesen.");
         //TODO remove
-        console.log(response);
-        return response;
+        console.log((await response).json());
+        return (await response).json();
     } else {
         console.log("Reisen konnten nicht ausgelesen werden.")
         return null;
