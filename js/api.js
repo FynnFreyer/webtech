@@ -126,7 +126,7 @@ if (inputTripCountry != null) {
 //Legt eine neue Reise an
 async function createTrip(tripname, startDate, endDate, country) {
     let data = {"name":tripname, "start":startDate, "end":endDate, "destination":country};
-    let URL = "https://htw-travel-app.herokuapp.com/travels"
+    let URL = "https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels";
     let response = fetch(URL, {
         "method" : "POST",
         headers: {
@@ -137,10 +137,10 @@ async function createTrip(tripname, startDate, endDate, country) {
         body: JSON.stringify(data)
     });
 
-    if (JSON.parse((await response).status) == 201) {
+    if (JSON.parse((await response).status) === 201) {
         console.log("Reise erfolgreich hinzugefügt.");
     } else {
-        console.log("Reise konnte nicht hinzugefügt werden.");
+        console.log("Reise konnte nicht hinzugefügt werden. Status code: " + (await response).status);
     }
 
 }
@@ -148,7 +148,7 @@ async function createTrip(tripname, startDate, endDate, country) {
 //Editiert eine vorhandene Reise
 async function editTrip(tripname, startDate, endDate, country) {
     let data = {"name": tripname, "start":startDate, "end":endDate, "destination":country};
-    let response = fetch('https://htw-travel-app.herokuapp.com/travels', {
+    let response = fetch('https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels', {
         "method" : "PUT",
         headers: {
             'Accept': 'application/json',
@@ -215,11 +215,11 @@ function getTrip(trips, tripName) {
 
 //Get SessionID => Quelle: https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie
 function getSessionID() {
-    let cookieIndex = document.cookie.indexOf('connect.sid=');
+    let cookieIndex = document.cookie.indexOf('session_id=');
     if (cookieIndex != -1) {
         const cookieValue = document.cookie
             .split('; ')
-            .find(row => row.startsWith('connect.sid='))
+            .find(row => row.startsWith('session_id='))
             .split('=')[1];
         return cookieValue;
     } else {
@@ -232,7 +232,7 @@ if (sessionActive != null) {
     document.getElementById("Login").innerHTML = "Ausloggen";
     document.getElementById("Login").style.color = "red";
     document.getElementById("Login").addEventListener('click', () => {
-        document.cookie = "connect.sid=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+        document.cookie = "session_id=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
     });
 }
 
