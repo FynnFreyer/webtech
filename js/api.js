@@ -64,7 +64,8 @@ if (deleteBtn != null) {
 function loadTrips() {
     let dropdownTrips = document.getElementById("name-select");
     let trips = getTrips();
-    console.log(trips);
+    let tripsObject = JSON.parse(trips);
+    console.log(tripsObject);
     for (let i = 0; i < trips.length; i++) {
         let option = document.createElement("OPTION");
         option.innerHTML = trips[i].name;
