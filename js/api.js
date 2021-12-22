@@ -65,7 +65,7 @@ function loadTrips() {
     let dropdownTrips = document.getElementById("name-select");
     let trips = getTrips()
     console.log(trips);
-    for (let i = 0; i < tripsObject.length; i++) {
+    for (let i = 0; i < trips.length; i++) {
         let option = document.createElement("OPTION");
         option.innerHTML = trips[i].name;
         option.value = trips[i].travel_id;
@@ -176,12 +176,14 @@ async function getTrips() {
         }
     })
         .then(function (res) {
+            console.log("Reise erfolgreich ausgelesen.")
             return res.json();
         })
         .then(function (resjson){
             console.log(resjson);
         })
 
+    /*
     if (JSON.parse((await response).status) == 200) {
         console.log("Reise erfolgreich ausgelesen.");
         return response.json();
@@ -189,6 +191,8 @@ async function getTrips() {
         console.log("Reisen konnten nicht ausgelesen werden.")
         return null;
     }
+
+     */
 }
 
 //TODO: get travelid from array of travels
