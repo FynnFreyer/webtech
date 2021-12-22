@@ -66,7 +66,8 @@ function loadTrips() {
     let trips = getTrips();
     let tripsObject = JSON.parse(trips);
     console.log(tripsObject);
-    for (let i = 0; i < trips.length; i++) {
+    console.log(tripsObject.length);
+    for (let i = 0; i < tripsObject.length; i++) {
         let option = document.createElement("OPTION");
         option.innerHTML = trips[i].name;
         option.value = trips[i].travel_id;
