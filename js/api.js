@@ -64,6 +64,7 @@ if (deleteBtn != null) {
 function loadTrips() {
     let dropdownTrips = document.getElementById("name-select");
     let trips = getTrips();
+    console.log(trips);
     for (let i = 0; i < trips.length; i++) {
         let option = document.createElement("OPTION");
         option.innerHTML = trips[i].name;
@@ -167,7 +168,7 @@ async function editTrip(tripname, startDate, endDate, country) {
 //Holt alle Reisen von einem Nutzer aus DB
 async function getTrips() {
     let URL = "https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels";
-    let response = fetch(URL, {
+    let response = await fetch(URL, {
         "method" : "GET",
         headers: {
             'Accept': 'application/json',
@@ -177,7 +178,7 @@ async function getTrips() {
 
     if (JSON.parse((await response).status) == 200) {
         console.log("Reise erfolgreich ausgelesen.");
-        return JSON.parse((await response).body);
+        return response.json();
     } else {
         console.log("Reisen konnten nicht ausgelesen werden.")
         return null;
