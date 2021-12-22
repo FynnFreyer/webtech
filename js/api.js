@@ -67,7 +67,7 @@ function loadTrips() {
     for (let i = 0; i < trips.length; i++) {
         let option = document.createElement("OPTION");
         option.innerHTML = trips[i].name;
-        option.value = name;
+        option.value = trips[i].travel_id;
         dropdownTrips.options.add(option);
     }
 }
@@ -166,7 +166,7 @@ async function editTrip(tripname, startDate, endDate, country) {
 
 //Holt alle Reisen von einem Nutzer aus DB
 async function getTrips() {
-    let URL = "https://htw-travel-app.herokuapp.com/travels";
+    let URL = "https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels";
     let response = fetch(URL, {
         "method" : "GET",
         headers: {
@@ -184,6 +184,7 @@ async function getTrips() {
     }
 }
 
+//TODO: get travelid from array of travels
 async function deleteTrip(tripName) {
     let email = getEmail();
     let data = {"name":tripName};
