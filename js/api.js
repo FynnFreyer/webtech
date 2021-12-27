@@ -1,5 +1,4 @@
 //Create Trip Form
-//Hi
 let inputTripName = document.getElementById("reisename");
 let inputTripCountry = document.getElementById("land");
 let inputTripStart = document.getElementById("start");
@@ -8,6 +7,7 @@ let btnNewTrip = document.getElementById("reiseErstellen");
 
 //Edit Trip Form
 let dropDownEdit = document.getElementById("name-select");
+let tripId = document.getElementById("reiseid");
 let deleteBtn = document.getElementById("delete");
 let saveBtn = document.getElementById("save");
 
@@ -48,6 +48,7 @@ if (dropDownEdit != null) {
             .then(data => {
                 for (let i = 0; i < data.length; i++) {
                     if (data[i].id == id) {
+                        tripId.value = data[i].id;
                         inputTripName.value = data[i].name;
                         inputTripStart.value = data[i].start;
                         inputTripEnd.value = data[i].end;
@@ -67,7 +68,14 @@ if (dropDownEdit != null) {
 //On Click Reise mit gewähltem Key aus LS löschen
 if (deleteBtn != null) {
     deleteBtn.addEventListener('click', () => {
-        deleteTrip(dropDownEdit.value);
+        let URL = "https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels/" + tripId.value;
+        fetch(URL, {
+            "method" : "DELETE",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
         loadTrips();
     });
 }
