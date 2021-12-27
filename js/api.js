@@ -75,6 +75,7 @@ function loadTrips() {
     }
 
      */
+    let dropdownTrips = document.getElementById("name-select");
     fetch("https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels", {
         "method" : "GET",
         headers: {
@@ -84,7 +85,12 @@ function loadTrips() {
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data[1]);
+            for (let i = 0; i < data.length; i++) {
+                let option = document.createElement("OPTION");
+                option.innerHTML = data[i].name;
+                option.value = data[i].id;
+                dropdownTrips.options.add(option);
+            }
         })
 
     //let parsedTrips = JSON.parse(json);
