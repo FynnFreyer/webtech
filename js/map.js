@@ -39,7 +39,6 @@ L.geoJson(geo, {
 function getVisitedCountries() {
 
     let visitedCountries = [];
-    let trips = getTrips();
     fetch("https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels", {
         "method" : "GET",
         headers: {
