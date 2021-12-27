@@ -64,7 +64,8 @@ if (deleteBtn != null) {
 function loadTrips() {
     let dropdownTrips = document.getElementById("name-select");
     let trips = getTrips();
-    console.log("Length of trips array is: " + trips.length);
+    console.log("In loadTrips(): " + trips);
+    /*
     console.log(trips[0]);
     for (let i = 0; i < trips.length; i++) {
         let option = document.createElement("OPTION");
@@ -72,6 +73,8 @@ function loadTrips() {
         option.value = trips[i].travel_id;
         dropdownTrips.options.add(option);
     }
+
+     */
 }
 
 
@@ -169,31 +172,18 @@ async function editTrip(tripname, startDate, endDate, country) {
 //Holt alle Reisen von einem Nutzer aus DB TODO: fix to return Array Object
 async function getTrips() {
     let URL = "https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels";
-    let response = await fetch(URL, {
+    await fetch(URL, {
         "method" : "GET",
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         }
     })
-        .then(function (res) {
-            console.log("Reise erfolgreich ausgelesen.")
-            return res.json();
-        })
-        .then(function (resjson){
-            console.log(resjson);
-        })
-
-    /* TODO: error handling
-    if (JSON.parse((await response).status) == 200) {
-        console.log("Reise erfolgreich ausgelesen.");
-        return response.json();
-    } else {
-        console.log("Reisen konnten nicht ausgelesen werden.")
-        return null;
-    }
-
-     */
+        .then((response) => response.json())
+        .then((res) => {
+            console.log("After fetch:" + res);
+            return res;
+        });
 }
 
 //TODO: get travelid from array of travels
