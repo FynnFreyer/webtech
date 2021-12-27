@@ -84,9 +84,7 @@ function loadTrips() {
     })
         .then(response => response.json())
         .then(data => {
-            for (const trip of data.trips) {
-                console.log(trip);
-            }
+            console.log(data[1]);
         })
 
     //let parsedTrips = JSON.parse(json);
