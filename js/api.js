@@ -75,15 +75,21 @@ function loadTrips() {
     }
 
      */
-    fetch("https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels", {
+    let json = fetch("https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels", {
         "method" : "GET",
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         }
     })
-        .then(res => res.json())
-        .then(data => console.log(data))
+        .then(res => {
+            return res.json();
+        })
+
+    let parsedTrips = JSON.parse(json);
+    console.log(parsedTrips);
+
+
 }
 
 
