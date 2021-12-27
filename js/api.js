@@ -62,10 +62,10 @@ if (deleteBtn != null) {
 
 //Lädt alle gespeicherten Reisen in Dropdown
 function loadTrips() {
+    /*
     let dropdownTrips = document.getElementById("name-select");
     let trips = getTrips();
     console.log("In loadTrips(): " + trips);
-    /*
     console.log(trips[0]);
     for (let i = 0; i < trips.length; i++) {
         let option = document.createElement("OPTION");
@@ -75,6 +75,15 @@ function loadTrips() {
     }
 
      */
+    fetch("https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels", {
+        "method" : "GET",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(res => res.json())
+        .then(data => console.log(data))
 }
 
 
@@ -172,7 +181,7 @@ async function editTrip(tripname, startDate, endDate, country) {
 //Holt alle Reisen von einem Nutzer aus DB TODO: fix to return Array Object
 async function getTrips() {
     let URL = "https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels";
-    await fetch(URL, {
+    return fetch(URL, {
         "method" : "GET",
         headers: {
             'Accept': 'application/json',
@@ -182,7 +191,7 @@ async function getTrips() {
         .then((response) => response.json())
         .then((res) => {
             console.log("After fetch:" + JSON.stringify(res));
-            return JSON.stringify(res);
+
         });
 }
 
