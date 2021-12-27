@@ -21,8 +21,9 @@ L.geoJson(geo, {
     style: countriesStyle,
     filter: function(feature, layer) {
         let visited = false;
+        console.log("Hi");
         for (let i = 0; i < visitedCoutriesArray.length; i++) {
-            if (feature.properties.iso_a2 === visitedCoutriesArray[i]) {
+            if (feature.properties.iso_a2 === "DE") {
                 visited = true;
             }
         }
@@ -31,7 +32,6 @@ L.geoJson(geo, {
         } else {
             return true;
         }
-
     }
 }).addTo(mymap);
 
@@ -55,5 +55,3 @@ function getVisitedCountries() {
     console.log(visitedCountries);
     return visitedCountries;
 }
-
-
