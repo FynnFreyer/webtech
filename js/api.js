@@ -83,7 +83,7 @@ function loadTrips() {
         }
     })
         .then(res => {
-            return res;
+            return res.json();
         })
 
     //let parsedTrips = JSON.parse(json);
