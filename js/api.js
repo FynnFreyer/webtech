@@ -11,7 +11,7 @@ let dropDownEdit = document.getElementById("name-select");
 let deleteBtn = document.getElementById("delete");
 let saveBtn = document.getElementById("save");
 
-// ------ Check Login -------
+// ------ Check Login ------- //TODO FIX
 function checkLogin() {
     if (getSessionID() == null) {
         alert("Sie müssen eingeloggt sein, um diese Seite zu sehen.");
@@ -36,19 +36,31 @@ if (btnNewTrip != null) {
 //On Change Reise mit gewähltem Key in Form laden und Enable Textfields
 if (dropDownEdit != null) {
     dropDownEdit.addEventListener('change', () => {
-        let name = dropDownEdit.value;
-        let trips = getTrips();
-        let trip = getTrip(trips, name);
-        inputTripName.value = trip.tripname;
-        inputTripStart.value = trip.startDate;
-        inputTripEnd.value = trip.endDate;
-        inputTripCountry.value = trip.country;
-        inputTripName.disabled = false;
-        inputTripStart.disabled = false;
-        inputTripEnd.disabled = false;
-        inputTripCountry.disabled = false;
-        deleteBtn.disabled = false;
-        saveBtn.disabled = false;
+        let id = dropDownEdit.value;
+        fetch("https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels", {
+            "method" : "GET",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                for (let i = 0; i < data.length; i++) {
+                    if (data[i].id == id) {
+                        inputTripName.value = data[i].name;
+                        inputTripStart.value = data[i].start;
+                        inputTripEnd.value = data[i].end;
+                        inputTripCountry.value = data[i].destination;
+                        inputTripName.disabled = false;
+                        inputTripStart.disabled = false;
+                        inputTripEnd.disabled = false;
+                        inputTripCountry.disabled = false;
+                        deleteBtn.disabled = false;
+                        saveBtn.disabled = false;
+                    }
+                }
+            })
     });
 }
 
@@ -62,19 +74,6 @@ if (deleteBtn != null) {
 
 //Lädt alle gespeicherten Reisen in Dropdown
 function loadTrips() {
-    /*
-    let dropdownTrips = document.getElementById("name-select");
-    let trips = getTrips();
-    console.log("In loadTrips(): " + trips);
-    console.log(trips[0]);
-    for (let i = 0; i < trips.length; i++) {
-        let option = document.createElement("OPTION");
-        option.innerHTML = trips[i].name;
-        option.value = trips[i].travel_id;
-        dropdownTrips.options.add(option);
-    }
-
-     */
     let dropdownTrips = document.getElementById("name-select");
     fetch("https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels", {
         "method" : "GET",
@@ -92,11 +91,6 @@ function loadTrips() {
                 dropdownTrips.options.add(option);
             }
         })
-
-    //let parsedTrips = JSON.parse(json);
-    //console.log(parsedTrips[1]);
-
-
 }
 
 
