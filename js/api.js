@@ -181,8 +181,8 @@ async function getTrips() {
     })
         .then((response) => response.json())
         .then((res) => {
-            console.log("After fetch:" + res);
-            return res;
+            console.log("After fetch:" + JSON.stringify(res));
+            return JSON.stringify(res);
         });
 }
 
