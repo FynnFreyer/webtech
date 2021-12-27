@@ -20,9 +20,9 @@ let visitedCoutriesArray = getVisitedCountries();
 L.geoJson(geo, {
     style: countriesStyle,
     filter: function(feature, layer) {
-        var visited = false;
+        let visited = false;
         for (let i = 0; i < visitedCoutriesArray.length; i++) {
-            if (feature.properties.iso_a2 == visitedCoutriesArray[i]) {
+            if (feature.properties.iso_a2 === visitedCoutriesArray[i]) {
                 visited = true;
             }
         }
