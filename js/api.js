@@ -65,7 +65,7 @@ if (dropDownEdit != null) {
     });
 }
 
-//On Click Reise mit gewähltem Key aus LS löschen
+//On Click Reise mit gewähltem Key aus LS löschen //TODO: fix 404
 if (deleteBtn != null) {
     deleteBtn.addEventListener('click', () => {
         let URL = "https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels/" + tripId.value;

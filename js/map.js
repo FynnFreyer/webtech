@@ -26,7 +26,6 @@ L.geoJson(geo, {
                 visited = true;
             }
         }
-
         if (visited == true) {
             return false;
         } else {
@@ -41,44 +40,21 @@ function getVisitedCountries() {
 
     let visitedCountries = [];
     let trips = getTrips();
-    for (let trip in trips) {
-        visitedCountries.push(trip.destination);
-    }
-    console.log(visitedCountries);
-    return visitedCountries;
-}
-
-async function getTrips() {
-    let email = getEmail();
-    let URL = "https://htw-travel-app.herokuapp.com/travels";
-    let response = fetch(URL, {
+    fetch("https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels", {
         "method" : "GET",
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         }
-    });
-
-    if (JSON.parse((await response).status) == 200) {
-        console.log("Reise erfolgreich hinzugefügt.");
-        return JSON.parse((await response).json()); //Backend has to return an array of trips
-    } else {
-        console.log("Reisen konnten nicht ausgelesen werden.")
-        return null;
-    }
-}
-
-function getEmail() {
-    let cookieIndex = document.cookie.indexOf('Session=');
-    if (cookieIndex != -1) {
-        cookieValue = document.cookie
-            .split('; ')
-            .find(row => row.startsWith('Email='))
-            .split('=')[1];
-        return cookieValue;
-    } else {
-        return null;
-    }
+    })
+        .then(response => response.json())
+        .then(data => {
+            for (let i = 0; i < data.length; i++) {
+                visitedCountries.push(data[i].destination);
+            }
+        })
+    console.log(visitedCountries);
+    return visitedCountries;
 }
 
 
