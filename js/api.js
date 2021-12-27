@@ -88,6 +88,7 @@ function loadTrips() {
 
     //let parsedTrips = JSON.parse(json);
     console.log(response);
+    let parsed = JSON.parse(response);
     //console.log(parsedTrips[1]);
 
 
