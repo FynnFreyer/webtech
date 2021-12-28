@@ -31,15 +31,13 @@ fetch("https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels", {
         L.geoJson(geo, {
             style: countriesStyle,
             filter: function(feature, layer) {
-                console.log(visitedCountries);
+                visited = false;
                 for (let c of visitedCountries) {
-                    console.log(c);
                     if (feature.properties.iso_a2 == c) {
-                        return false;
-                    } else {
-                        return true;
+                        visited = true;
                     }
                 }
+                return visited;
 
             }
         }).addTo(mymap);
