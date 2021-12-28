@@ -15,39 +15,31 @@ var countriesStyle = {
 };
 
 //Filter visited
-let visitedCoutriesArray = await getVisitedCountries();
-//GeoJSON
-L.geoJson(geo, {
-    style: countriesStyle,
-    filter: function(feature, layer) {
-        console.log(visitedCoutriesArray.length);
-        for (let i = 0; i < visitedCoutriesArray.length; i++) {
-            if (feature.properties.iso_a2 === visitedCoutriesArray[i]) {
-                return false;
-            } else {
-                return true;
-            }
-        }
+let visitedCoutriesArray = getVisitedCountries();
+
+fetch("https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels", {
+    "method" : "GET",
+    headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
     }
-}).addTo(mymap);
-
-
-function getVisitedCountries() {
-
-    let visitedCountries = [];
-    fetch("https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels", {
-        "method" : "GET",
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
+})
+    .then(response => response.json())
+    .then(data => {
+        for (let i = 0; i < data.length; i++) {
+            visitedCountries.push(data[i].destination);
         }
-    })
-        .then(response => response.json())
-        .then(data => {
-            for (let i = 0; i < data.length; i++) {
-                visitedCountries.push(data[i].destination);
+        L.geoJson(geo, {
+            style: countriesStyle,
+            filter: function(feature, layer) {
+                console.log(visitedCoutriesArray.length);
+                for (let i = 0; i < visitedCoutriesArray.length; i++) {
+                    if (feature.properties.iso_a2 === visitedCoutriesArray[i]) {
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
             }
-        })
-    console.log(visitedCountries);
-    return visitedCountries;
-}
+        }).addTo(mymap);
+    })
