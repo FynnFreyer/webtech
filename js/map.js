@@ -15,7 +15,6 @@ var countriesStyle = {
 };
 
 //Filter visited
-//let visitedCoutriesArray = getVisitedCountries();
 fetch("https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels", {
     "method" : "GET",
     headers: {
@@ -32,7 +31,7 @@ fetch("https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels", {
         L.geoJson(geo, {
             style: countriesStyle,
             filter: function(feature, layer) {
-                for (let i = 0; i < visitedCoutries.length; i++) {
+                for (let i = 0; i < visitedCountries.length; i++) {
                     if (feature.properties.iso_a2 === visitedCoutriesArray[i]) {
                         return false;
                     } else {
