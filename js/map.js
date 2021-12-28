@@ -32,7 +32,7 @@ fetch("https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels", {
             style: countriesStyle,
             filter: function(feature, layer) {
                 for (let i = 0; i < visitedCountries.length; i++) {
-                    if (feature.properties.iso_a2 === visitedCoutriesArray[i]) {
+                    if (feature.properties.iso_a2 === visitedCountries[i]) {
                         return false;
                     } else {
                         return true;
