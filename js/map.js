@@ -23,7 +23,7 @@ L.geoJson(geo, {
         let visited = false;
         console.log(feature.properties.iso_a2);
         for (let i = 0; i < visitedCoutriesArray.length; i++) {
-            if (feature.properties.iso_a2 === "DE") {
+            if (feature.properties.iso_a2 == "DE") {
                 visited = true;
             }
         }
