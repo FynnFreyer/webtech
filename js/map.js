@@ -21,8 +21,7 @@ L.geoJson(geo, {
     style: countriesStyle,
     filter: function(feature, layer) {
         let visited = false;
-        console.log("Hi");
-        console.log(feature)
+        console.log(feature.properties.iso_a2);
         for (let i = 0; i < visitedCoutriesArray.length; i++) {
             if (feature.properties.iso_a2 === "DE") {
                 visited = true;
