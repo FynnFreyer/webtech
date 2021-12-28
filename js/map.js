@@ -20,12 +20,13 @@ let visitedCoutriesArray = getVisitedCountries();
 L.geoJson(geo, {
     style: countriesStyle,
     filter: function(feature, layer) {
-        let visited = false;
-        console.log(feature.properties.iso_a2);
-        if (feature.properties.iso_a2 == "DE") {
-            return false;
-        } else {
-            return true;
+        console.log(visitedCoutriesArray.length);
+        for (let i = 0; i < visitedCoutriesArray.length; i++) {
+            if (feature.properties.iso_a2 === visitedCoutriesArray[i]) {
+                return false;
+            } else {
+                return true;
+            }
         }
         /*
         for (let i = 0; i < visitedCoutriesArray.length; i++) {
