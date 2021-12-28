@@ -22,6 +22,12 @@ L.geoJson(geo, {
     filter: function(feature, layer) {
         let visited = false;
         console.log(feature.properties.iso_a2);
+        if (feature.properties.iso_a2 == "DE") {
+            return false;
+        } else {
+            return true;
+        }
+        /*
         for (let i = 0; i < visitedCoutriesArray.length; i++) {
             if (feature.properties.iso_a2 == "DE") {
                 visited = true;
@@ -32,6 +38,8 @@ L.geoJson(geo, {
         } else {
             return true;
         }
+
+         */
     }
 }).addTo(mymap);
 
