@@ -31,8 +31,9 @@ fetch("https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels", {
         L.geoJson(geo, {
             style: countriesStyle,
             filter: function(feature, layer) {
+                console.log("Length of array is: " + visitedCountries.length);
                 for (let i = 0; i < visitedCountries.length; i++) {
-                    console.log(feature.properties);
+                    console.log(feature.properties.iso_a2);
                     console.log(visitedCountries[i]);
                     if (feature.properties.iso_a2 == visitedCountries[i]) {
                         return false;
