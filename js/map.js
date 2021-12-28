@@ -15,7 +15,7 @@ var countriesStyle = {
 };
 
 //Filter visited
-let visitedCoutriesArray = getVisitedCountries();
+let visitedCoutriesArray = await getVisitedCountries();
 //GeoJSON
 L.geoJson(geo, {
     style: countriesStyle,
@@ -28,19 +28,6 @@ L.geoJson(geo, {
                 return true;
             }
         }
-        /*
-        for (let i = 0; i < visitedCoutriesArray.length; i++) {
-            if (feature.properties.iso_a2 == "DE") {
-                visited = true;
-            }
-        }
-        if (visited == true) {
-            return false;
-        } else {
-            return true;
-        }
-
-         */
     }
 }).addTo(mymap);
 
