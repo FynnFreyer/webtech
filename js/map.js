@@ -33,6 +33,7 @@ fetch("https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels", {
             filter: function(feature, layer) {
                 console.log(visitedCountries);
                 for (let i = 0; i < visitedCountries.length; i++) {
+                    console.log(i);
                     console.log(feature.properties.iso_a2);
                     console.log(visitedCountries[i]);
                     if (feature.properties.iso_a2 == visitedCountries[i]) {
