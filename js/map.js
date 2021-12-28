@@ -15,7 +15,7 @@ var countriesStyle = {
 };
 
 //Filter visited
-let visitedCoutriesArray = getVisitedCountries();
+//let visitedCoutriesArray = getVisitedCountries();
 
 fetch("https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels", {
     "method" : "GET",
