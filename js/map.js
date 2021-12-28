@@ -16,7 +16,7 @@ var countriesStyle = {
 
 //Filter visited
 //let visitedCoutriesArray = getVisitedCountries();
-
+let visitedCountries = [];
 fetch("https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels", {
     "method" : "GET",
     headers: {
@@ -26,7 +26,6 @@ fetch("https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels", {
 })
     .then(response => response.json())
     .then(data => {
-        let visitedCountries = [];
         for (let i = 0; i < data.length; i++) {
             visitedCountries.push(data[i].destination);
         }
