@@ -1,8 +1,8 @@
 # Abgabe 3
-- [ ] Fix edit and delete in api.js 
+- [ ] Fix edit in api.js 
 - [ ] Create registration page 
 - [ ] Clean up api.js 
-- [ ] Load visited countries into map 
+- [x] Load visited countries into map 
 - [ ] 
 
 ---

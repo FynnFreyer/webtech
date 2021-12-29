@@ -65,7 +65,7 @@ if (dropDownEdit != null) {
     });
 }
 
-//On Click Reise mit gewähltem Key aus LS löschen //TODO: fix 404
+//On Click Reise mit gewähltem Key aus LS löschen
 if (deleteBtn != null) {
     deleteBtn.addEventListener('click', () => {
         let URL = "https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels/" + tripId.value;
@@ -104,28 +104,28 @@ function loadTrips() {
 
 //Speichert Änderungen an Reise
 if (saveBtn != null) {
+    let tripname = inputTripName.value;
+    let startDate = inputTripStart.value;
+    let endDate = inputTripEnd.value;
+    let country = inputTripCountry.value;
+    let URL = "https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels" + tripId.value;
+    let data = {"name": tripname, "start":startDate, "end":endDate, "destination":country};
     saveBtn.addEventListener('click', () => {
-        let trips = getTrips();
-        let oldTrip = getTrip(dropDownEdit.value);
-        let name = inputTripName.value;
-        let start = inputTripStart.value;
-        let end = inputTripEnd.value;
-        let country = inputTripCountry.value;
-        let newTrip = {
-            tripname: name,
-            country: country,
-            startDate: start,
-            endDate: end
-        };
-
-        if (name != oldTrip.tripname) {
-            let deleteResponse = deleteTrip(dropDownEdit.value);
-            let createResponse = createTrip(name, start, end, country, getEmail());
-        } else {
-            editTrip(newTrip);
-        }
+        fetch(URL, {
+            "method" : "PUT",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data),
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+            })
     });
 }
+
 
 
 if (document.getElementById("name-select") != null) {
