@@ -104,13 +104,13 @@ function loadTrips() {
 
 //Speichert Änderungen an Reise
 if (saveBtn != null) {
-    let data = {"name": tripname, "start":startDate, "end":endDate, "destination":country};
     saveBtn.addEventListener('click', () => {
         let tripname = inputTripName.value;
         let startDate = inputTripStart.value;
         let endDate = inputTripEnd.value;
         let country = inputTripCountry.value;
         let URL = "https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels" + tripId.value;
+        let data = {"name": tripname, "start":startDate, "end":endDate, "destination":country};
 
         fetch(URL, {
             "method" : "PUT",
