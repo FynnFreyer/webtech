@@ -32,7 +32,7 @@ async function login() {
     if (JSON.parse(response.status) === 200) {
         status.innerHTML = "Login erfolgreich!";
         status.style.color = "green";
-        await sleep(700);
+        //await sleep(700);
         window.location.href = 'overview.html';
     } else {
         status.innerHTML = "Login fehlgeschlagen. Bitte überprüfen Sie Email Adresse und Passwort.";

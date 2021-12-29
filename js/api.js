@@ -1,5 +1,4 @@
 //Create Trip Form
-//Hi
 let inputTripName = document.getElementById("reisename");
 let inputTripCountry = document.getElementById("land");
 let inputTripStart = document.getElementById("start");
@@ -8,14 +7,15 @@ let btnNewTrip = document.getElementById("reiseErstellen");
 
 //Edit Trip Form
 let dropDownEdit = document.getElementById("name-select");
+let tripId = document.getElementById("reiseid");
 let deleteBtn = document.getElementById("delete");
 let saveBtn = document.getElementById("save");
 
-// ------ Check Login -------
+// ------ Check Login ------- //TODO FIX
 function checkLogin() {
     if (getSessionID() == null) {
         alert("Sie müssen eingeloggt sein, um diese Seite zu sehen.");
-        window.location.href = "index.html";
+        //window.location.href = "index.html";
     }
 }
 
@@ -36,26 +36,46 @@ if (btnNewTrip != null) {
 //On Change Reise mit gewähltem Key in Form laden und Enable Textfields
 if (dropDownEdit != null) {
     dropDownEdit.addEventListener('change', () => {
-        let name = dropDownEdit.value;
-        let trips = getTrips();
-        let trip = getTrip(trips, name);
-        inputTripName.value = trip.tripname;
-        inputTripStart.value = trip.startDate;
-        inputTripEnd.value = trip.endDate;
-        inputTripCountry.value = trip.country;
-        inputTripName.disabled = false;
-        inputTripStart.disabled = false;
-        inputTripEnd.disabled = false;
-        inputTripCountry.disabled = false;
-        deleteBtn.disabled = false;
-        saveBtn.disabled = false;
+        let id = dropDownEdit.value;
+        fetch("https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels", {
+            "method" : "GET",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                for (let i = 0; i < data.length; i++) {
+                    if (data[i].id == id) {
+                        tripId.value = data[i].id;
+                        inputTripName.value = data[i].name;
+                        inputTripStart.value = data[i].start;
+                        inputTripEnd.value = data[i].end;
+                        inputTripCountry.value = data[i].destination;
+                        inputTripName.disabled = false;
+                        inputTripStart.disabled = false;
+                        inputTripEnd.disabled = false;
+                        inputTripCountry.disabled = false;
+                        deleteBtn.disabled = false;
+                        saveBtn.disabled = false;
+                    }
+                }
+            })
     });
 }
 
-//On Click Reise mit gewähltem Key aus LS löschen
+//On Click Reise mit gewähltem Key aus LS löschen //TODO: fix 404
 if (deleteBtn != null) {
     deleteBtn.addEventListener('click', () => {
-        deleteTrip(dropDownEdit.value);
+        let URL = "https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels/" + tripId.value;
+        fetch(URL, {
+            "method" : "DELETE",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
         loadTrips();
     });
 }
@@ -63,13 +83,22 @@ if (deleteBtn != null) {
 //Lädt alle gespeicherten Reisen in Dropdown
 function loadTrips() {
     let dropdownTrips = document.getElementById("name-select");
-    let trips = getTrips();
-    for (let i = 0; i < trips.length; i++) {
-        let option = document.createElement("OPTION");
-        option.innerHTML = trips[i].name;
-        option.value = name;
-        dropdownTrips.options.add(option);
-    }
+    fetch("https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels", {
+        "method" : "GET",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(response => response.json())
+        .then(data => {
+            for (let i = 0; i < data.length; i++) {
+                let option = document.createElement("OPTION");
+                option.innerHTML = data[i].name;
+                option.value = data[i].id;
+                dropdownTrips.options.add(option);
+            }
+        })
 }
 
 
@@ -126,7 +155,7 @@ if (inputTripCountry != null) {
 //Legt eine neue Reise an
 async function createTrip(tripname, startDate, endDate, country) {
     let data = {"name":tripname, "start":startDate, "end":endDate, "destination":country};
-    let URL = "https://htw-travel-app.herokuapp.com/travels"
+    let URL = "https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels";
     let response = fetch(URL, {
         "method" : "POST",
         headers: {
@@ -137,10 +166,10 @@ async function createTrip(tripname, startDate, endDate, country) {
         body: JSON.stringify(data)
     });
 
-    if (JSON.parse((await response).status) == 201) {
+    if (JSON.parse((await response).status) === 201) {
         console.log("Reise erfolgreich hinzugefügt.");
     } else {
-        console.log("Reise konnte nicht hinzugefügt werden.");
+        console.log("Reise konnte nicht hinzugefügt werden. Status code: " + (await response).status);
     }
 
 }
@@ -148,7 +177,7 @@ async function createTrip(tripname, startDate, endDate, country) {
 //Editiert eine vorhandene Reise
 async function editTrip(tripname, startDate, endDate, country) {
     let data = {"name": tripname, "start":startDate, "end":endDate, "destination":country};
-    let response = fetch('https://htw-travel-app.herokuapp.com/travels', {
+    let response = fetch('https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels', {
         "method" : "PUT",
         headers: {
             'Accept': 'application/json',
@@ -164,26 +193,24 @@ async function editTrip(tripname, startDate, endDate, country) {
     }
 }
 
-//Holt alle Reisen von einem Nutzer aus DB
+//Holt alle Reisen von einem Nutzer aus DB TODO: fix to return Array Object
 async function getTrips() {
-    let URL = "https://htw-travel-app.herokuapp.com/travels";
-    let response = fetch(URL, {
+    let URL = "https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels";
+    return fetch(URL, {
         "method" : "GET",
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         }
-    });
+    })
+        .then((response) => response.json())
+        .then((res) => {
+            console.log("After fetch:" + JSON.stringify(res));
 
-    if (JSON.parse((await response).status) == 201) {
-        console.log("Reise erfolgreich hinzugefügt.");
-        return JSON.parse((await response).json());
-    } else {
-        console.log("Reisen konnten nicht ausgelesen werden.")
-        return null;
-    }
+        });
 }
 
+//TODO: get travelid from array of travels
 async function deleteTrip(tripName) {
     let email = getEmail();
     let data = {"name":tripName};
@@ -215,11 +242,11 @@ function getTrip(trips, tripName) {
 
 //Get SessionID => Quelle: https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie
 function getSessionID() {
-    let cookieIndex = document.cookie.indexOf('connect.sid=');
+    let cookieIndex = document.cookie.indexOf('session_id=');
     if (cookieIndex != -1) {
         const cookieValue = document.cookie
             .split('; ')
-            .find(row => row.startsWith('connect.sid='))
+            .find(row => row.startsWith('session_id='))
             .split('=')[1];
         return cookieValue;
     } else {
@@ -232,7 +259,7 @@ if (sessionActive != null) {
     document.getElementById("Login").innerHTML = "Ausloggen";
     document.getElementById("Login").style.color = "red";
     document.getElementById("Login").addEventListener('click', () => {
-        document.cookie = "connect.sid=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+        document.cookie = "session_id=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
     });
 }
 
