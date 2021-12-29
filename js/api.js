@@ -109,7 +109,7 @@ if (saveBtn != null) {
         let startDate = inputTripStart.value;
         let endDate = inputTripEnd.value;
         let country = inputTripCountry.value;
-        let URL = "https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels" + tripId.value;
+        let URL = "https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels/" + tripId.value;
         let data = {"name": tripname, "start":startDate, "end":endDate, "destination":country};
 
         fetch(URL, {
