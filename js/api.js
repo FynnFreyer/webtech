@@ -94,9 +94,6 @@ if (dropDownEdit != null) {
                 'Content-Type': 'application/json'
             }
         })
-            .then(res => {
-                logResponse(res, "Reise erfolgreich geladen", "Reise konnte nicht geladen werden.");
-            })
             .then(res => res.json())
             .then(data => {
                 for (let i = 0; i < data.length; i++) {
