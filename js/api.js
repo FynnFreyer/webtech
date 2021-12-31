@@ -154,7 +154,7 @@ if (inputTripCountry != null) {
     loadDropdown();
 }
 
-//------ LOGIN ------
+//------ LOGIN ------ //TODO: implement correct request based logout
 function checkLogin() {
     fetch(BASEURLTRAVELS, {
         "method" : "GET",
@@ -166,12 +166,16 @@ function checkLogin() {
         .then(res => {
             if (res.ok) {
                 console.log("Eingeloggt");
+                document.getElementById("Login").innerHTML = "Ausloggen";
+                document.getElementById("Login").style.color = "red";
+                document.getElementById("Login").addEventListener('click', () => {
+                    document.cookie = "session_id=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+                });
             } else {
                 window.location.replace("https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/");
             }
         })
 }
-
 
 
 //HILFSFUNKTIONEN
