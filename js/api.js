@@ -167,7 +167,7 @@ function checkLogin() {
             if (res.ok) {
                 console.log("Eingeloggt");
             } else {
-                window.location("/index.html");
+                window.location.replace("https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/");
             }
         })
 }
