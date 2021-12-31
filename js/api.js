@@ -13,8 +13,8 @@ let deleteBtn = document.getElementById("delete");
 let saveBtn = document.getElementById("save");
 
 //BASE URL
-const BASEURLTRAVELS = "https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels"
-const BASEURLUSERS = "https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels"
+const BASEURLTRAVELS = "https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels/"
+const BASEURLUSERS = "https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels/"
 
 //Login
 
