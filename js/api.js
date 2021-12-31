@@ -25,6 +25,7 @@ if (btnNewTrip != null) {
         let start = inputTripStart.value;
         let end = inputTripEnd.value;
         let country = inputTripCountry.value;
+        let data = {"name":tripname, "start":start, "end":end, "destination":country};
         fetch(BASEURLTRAVELS, {
             "method" : "POST",
             headers: {
