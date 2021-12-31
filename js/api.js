@@ -16,7 +16,6 @@ let saveBtn = document.getElementById("save");
 const BASEURLTRAVELS = "https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels/"
 const BASEURLUSERS = "https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels/"
 
-//Login
 
 //------ CREATE ------
 if (btnNewTrip != null) {
@@ -155,6 +154,24 @@ if (inputTripCountry != null) {
     loadDropdown();
 }
 
+//------ LOGIN ------
+function checkLogin() {
+    fetch(BASEURLTRAVELS, {
+        "method" : "GET",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(res => {
+            if (res.ok) {
+                console.log("Eingeloggt");
+            } else {
+                window.location("/index.html");
+            }
+        })
+}
+
 
 
 //HILFSFUNKTIONEN
@@ -169,3 +186,5 @@ function logResponse(res, successMsg, failMsg) {
 if (document.getElementById("name-select") != null) {
     loadTrips();
 }
+
+checkLogin();
