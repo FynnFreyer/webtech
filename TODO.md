@@ -1,9 +1,12 @@
 # Abgabe 3
-- [ ] Fix edit in api.js 
-- [ ] Create registration page 
-- [ ] Clean up api.js 
+- [x] Fix edit in api.js 
+- [x] Create registration page 
+- [x] Clean up api.js 
 - [x] Load visited countries into map 
-- [ ] 
+
+# Abschlussprojekt 
+- [ ] Zeitstrahl auf Kartenseite 
+- [ ] Registrierung mit Email Bestätigung (FE fertig)
 
 ---
 # Ideen:
