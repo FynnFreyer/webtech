@@ -44,6 +44,8 @@ async function login() {
 
 //------ REGISTER ------
 submitbtnRegister.addEventListener("click", () => {
+    let emailInput = document.getElementById("email").value;
+    let passwordInput = document.getElementById("password").value;
     fetch("https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/users", {
         "method": "POST",
         headers: {
