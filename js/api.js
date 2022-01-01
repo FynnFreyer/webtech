@@ -176,6 +176,13 @@ function checkLogin() {
                             'Content-Type': 'application/json'
                         }
                     })
+                        .then(res => {
+                            if (res.ok) {
+                                console.log("(" + res.status + ") Erfolgreich ausgeloggt.")
+                            } else {
+                                console.log("(" + res.status + ") Ausloggen nicht möglich.")
+                            }
+                        })
                 });
             } else {
                 window.location.replace("https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/");
