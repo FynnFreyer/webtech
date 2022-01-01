@@ -170,6 +170,7 @@ function checkLogin() {
                 document.getElementById("Login").style.color = "red";
                 document.getElementById("Login").addEventListener('click', () => {
                     document.cookie = "session_id=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+                    //TODO: send req to backend to delete cookie
                 });
             } else {
                 window.location.replace("https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/");
