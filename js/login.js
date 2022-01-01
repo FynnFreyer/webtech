@@ -2,6 +2,7 @@
 const emailTextfield = document.getElementById("email");
 const passwordTextfield = document.getElementById("password");
 const submitbtn = document.getElementById("submit");
+const submitbtnRegister = document.getElementById("submitRegister");
 const status = document.getElementById("loginStatus");
 
 //https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep
@@ -40,3 +41,29 @@ async function login() {
     }
 
 }
+
+//------ REGISTER ------
+submitbtnRegister.addEventListener("click", () => {
+    let emailInput = document.getElementById("email").value;
+    let passwordInput = document.getElementById("password").value;
+    fetch("https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/users", {
+        "method": "POST",
+        headers: {
+            'Accept' : '*/*',
+            'Content-Type': 'application/json'
+        },
+        credentials: 'same-origin',
+        body: JSON.stringify({
+            "email": emailInput,
+            "password": passwordInput
+        })
+    })
+        .then(res => {
+            if (res.ok) {
+                status.innerHTML = "Registrierung erfolgreich. Es wurde ein Bestätigungslink an Ihre Email Adresse gesendet.";
+            } else {
+                status.innerHTML = "Registrierung fehlgeschlagen. (Fehlercode: " + res.status + ")";
+            }
+        })
+});
+
