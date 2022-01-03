@@ -43,6 +43,7 @@ if (btnNewTrip != null) {
 //------ DELETE ------
 if (deleteBtn != null) {
     deleteBtn.addEventListener('click', () => {
+        event.preventDefault();
         fetch(BASEURLTRAVELS + tripId.value, {
             "method" : "DELETE",
             headers: {
@@ -117,6 +118,7 @@ if (dropDownEdit != null) {
 //Speichert Änderungen an Reise
 if (saveBtn != null) {
     saveBtn.addEventListener('click', () => {
+        event.preventDefault();
         let tripname = inputTripName.value;
         let startDate = inputTripStart.value;
         let endDate = inputTripEnd.value;
