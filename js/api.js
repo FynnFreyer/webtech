@@ -163,7 +163,7 @@ if (addUser != null) {
     addUser.addEventListener('click', () => {
         let travelID = tripId.value;
         let email = addUserEmail.value;
-        let URL = BASEURLTRAVELS + "/" + travelID;
+        let URL = BASEURLTRAVELS  + travelID;
         let data = {"email": email};
         fetch(URL, {
             "method" : "POST",
