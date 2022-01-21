@@ -51,7 +51,7 @@ let testDate2 = new Date("11/12/2021");
 
 
 if (dateSlider != null) {
-    dateSlider.addEventListener('onchange', () => {
+    dateSlider.addEventListener('change', () => {
         let resultDate = (testDate1 + testDate2) / dateSlider.value;
         console.log(resultDate);
     })
