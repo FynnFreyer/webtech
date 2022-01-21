@@ -238,3 +238,4 @@ if (document.getElementById("name-select") != null) {
 }
 
 checkLogin();
+console.log(addUser);
