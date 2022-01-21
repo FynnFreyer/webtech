@@ -161,17 +161,17 @@ if (inputTripCountry != null) {
 //------ MULTI USER ------
 if (addUser != null) {
     addUser.addEventListener('click', () => {
-        console.log("hi");
         let travelID = tripId.value;
         let email = addUserEmail.value;
         let URL = BASEURLTRAVELS + "/" + travelID;
+        let data = {"email": email};
         fetch(URL, {
             "method" : "POST",
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(email)
+            body: JSON.stringify(data)
         })
             .then(res => {
                 if (res.ok) {
