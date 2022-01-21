@@ -11,6 +11,8 @@ let dropDownEdit = document.getElementById("name-select");
 let tripId = document.getElementById("reiseid");
 let deleteBtn = document.getElementById("delete");
 let saveBtn = document.getElementById("save");
+let addUser = document.getElementById("addUser");
+let addUserEmail = document.getElementById("addUserEmail");
 
 //BASE URL
 const BASEURLTRAVELS = "https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels/"
@@ -155,6 +157,34 @@ function loadDropdown() {
 if (inputTripCountry != null) {
     loadDropdown();
 }
+
+//------ MULTI USER ------
+if (addUser != null) {
+    addUser.addEventListener('click', () => {
+        let travelID = tripId.value;
+        let email = addUserEmail.value;
+        let URL = BASEURLTRAVELS + "/" + travelID;
+        fetch(URL, {
+            "method" : "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(email)
+        })
+            .then(res => {
+                if (res.ok) {
+                    console.log("Neuen Teilnehmer erfolgreich zur Reise hinzugefügt.")
+                } else {
+                    console.log("Neuer Teilnehmer konnte nicht hinzugefügt werden.")
+                }
+            })
+
+
+    })
+}
+
+
 
 //------ LOGIN ------ //TODO: implement correct request based logout
 function checkLogin() {

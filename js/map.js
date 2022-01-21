@@ -42,3 +42,9 @@ fetch("https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels", {
             }
         }).addTo(mymap);
     })
+
+//Timeline filter
+
+
+
+

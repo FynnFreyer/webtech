@@ -6,12 +6,10 @@
 
 # Abschlussprojekt 
 - [ ] Zeitstrahl auf Kartenseite 
-- [ ] Registrierung mit Email Bestätigung (FE fertig)
+- [x] Registrierung mit Email Bestätigung (FE fertig)
+- [ ] Multi User Reisen Form in edit.html 
+- [ ] Add users Funktion in api.js
+- [ ] Bestätigungsseite nach Registrierungslink in Email 
 
----
-# Ideen:
-- Tabellen Übersicht unter Karte
-- Tooltip bei Hover über Land mit Reise; Handy andere Lösung überlegen
-- Statistik bspw. Tage verbracht
-- Edit: Dropdown mit Reise auswählen nach Reisename oder neue Reise (unique) 
+
  
