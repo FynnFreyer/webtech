@@ -14,7 +14,7 @@ var countriesStyle = {
     "weight": 2
 };
 
-//Filter visited
+//------ Filter visited ------
 fetch("https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels", {
     "method" : "GET",
     headers: {
@@ -43,7 +43,19 @@ fetch("https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels", {
         }).addTo(mymap);
     })
 
-//Timeline filter
+//------ Timeline filter ------
+let dateSlider = document.getElementById("date");
+
+let testDate1 = new Date("10/12/2000");
+let testDate2 = new Date("11/12/2021");
+
+
+if (dateSlider != null) {
+    dateSlider.addEventListener('onchange', () => {
+        let resultDate = (testDate1 + testDate2) / dateSlider.value;
+        console.log(resultDate);
+    })
+}
 
 
 
