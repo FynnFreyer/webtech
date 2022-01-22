@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8"/>
+    <title>Kartenapp - Login</title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/login.css"/>
+</head>
+<body>
+<main>
+    <header>
+        <div class="logowrapper">
+            <h1 class="logo">TravelApp.</h1>
+        </div>
+        <nav class="bigNav">
+            <ul>
+                <!-- TODO only display links if logged in -->
+                <!-- look for session cookie?! -->
+                <li><a href="overview.html">Karte</a></li>
+                <li><a href="add.html">Hinzufügen</a></li>
+                <li><a href="edit.html">Änderungen</a></li>
+                <li><a href="#">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="content">
+        <div id="verified">
+        <h1>Sie haben sich erfolgreich verifiziert!</h1>
+            <h2>Bitte loggen Sie sich mit Ihren gewählten Zugangsdaten ein.</h2>
+            <button class="button" onclick="window.location.href='/index.html'">Zum Login</button>
+        </div>
+    </div>
+    <footer>
+        <!-- Mobile Nav -->
+        <div class="attribution">Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a
+                href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+
+        <nav class="mobileNav">
+            <ul>
+                <!-- TODO only display links if logged in -->
+                <!-- look for session cookie?! -->
+                <li><a href="add.html"><img src="assets/plus.png"></a></li>
+                <li><a href="overview.html"><img src="assets/map.png"></a></li>
+                <li><a href="edit.html"><img src="assets/editing.png"></a></li>
+                <li><a href="index.html"><img src="assets/login.png"></a></li>
+            </ul>
+        </nav>
+    </footer>
+</main>
+</body>
+</html>

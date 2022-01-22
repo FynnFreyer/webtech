@@ -181,8 +181,12 @@ footer {
     width: 100vw;
 }
 
-#date {
+#verified {
+    width: 50%;
+    margin: auto;
 }
+
+
 
 
 /* ------ Mobile ------ */
