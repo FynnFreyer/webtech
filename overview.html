@@ -45,8 +45,10 @@
         </div>
         <script language="javascript" type="text/javascript" src="js/map.js"></script>
 
-        <form>
-            <input id="date" type="range">
+        <form id="filterForm" style="margin-top: 20px">
+            <h2>Nach Datum filtern:</h2>
+            <input id="date" type="range" min="0" max="100" step="-1">
+            <h4 id="selectedDate"></h4>
         </form>
     </div>
     <footer>
