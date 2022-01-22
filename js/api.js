@@ -227,12 +227,11 @@ function checkLogin() {
 let dateSlider = document.getElementById("date");
 
 //YYYY-MM-DD
-let testDate1 = new Date("1970-01-01");
-let testDate2 = new Date();
+let minDate = new Date("1970-01-01");
+let maxDate = new Date();
 if (dateSlider != null) {
-    console.log("Slider added");
     dateSlider.addEventListener('click', () => {
-        let resultDate = new Date((testDate1*(1-dateSlider.value/100)) + (testDate2*(0+dateSlider.value/100)));
+        let resultDate = new Date((minDate*(1-dateSlider.value/100)) + (maxDate*(0+dateSlider.value/100)));
         document.getElementById("selectedDate").innerHTML = resultDate;
         let filteredTrips = filterTrips(resultDate);
     })
