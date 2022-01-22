@@ -223,6 +223,44 @@ function checkLogin() {
         })
 }
 
+//------ Filter trips by date ------
+let dateSlider = document.getElementById("date");
+
+//YYYY-MM-DD
+let testDate1 = new Date("1970-01-01");
+let testDate2 = new Date();
+if (dateSlider != null) {
+    console.log("Slider added");
+    dateSlider.addEventListener('click', () => {
+        let resultDate = new Date((testDate1*(1-dateSlider.value/100)) + (testDate2*(0+dateSlider.value/100)));
+        document.getElementById("selectedDate").innerHTML = resultDate;
+        let filteredTrips = filterTrips(resultDate);
+    })
+}
+
+function filterTrips(date) {
+    fetch(BASEURLTRAVELS, {
+        "method" : "GET",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(res => res.json())
+        .then(data => {
+            let filtered = [];
+            for (let i = 0; i < data.length; i++) {
+                let tempDate = new Date(data[i].end)
+                if (tempDate.getTime() < date.getTime()) {
+                    filtered.push(data[i]);
+                }
+            }
+            console.log(filtered);
+            updateMap(filtered);
+
+        })
+}
+
 
 
 //HILFSFUNKTIONEN
@@ -237,6 +275,7 @@ function logResponse(res, successMsg, failMsg) {
 if (document.getElementById("name-select") != null) {
     loadTrips();
 }
+
 
 
 
