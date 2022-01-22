@@ -44,6 +44,7 @@ fetch("https://htw-berlin-webtech-freyer-abdelwadoud.netlify.app/api/travels", {
     })
 
 function updateMap(countries) {
+    mymap = L.map('mapid').setView([51.505, -0.09], 2);
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
         maxZoom: 18,
@@ -53,12 +54,12 @@ function updateMap(countries) {
         accessToken: 'pk.eyJ1IjoiaGVpZG9sZWluOTkiLCJhIjoiY2t2OXUzc2t0MDh2ZjJ2cGdrYm5vMWdsNSJ9.CvO5TfaWDYRrJtdqczwQDQ'
     }).addTo(mymap);
 
-//Style Black
+
+
     var countriesStyle = {
         "color": "#000000",
         "weight": 2
     };
-
 
     let visitedCountries = [];
     for (let i = 0; i < countries.length; i++) {
@@ -74,7 +75,6 @@ function updateMap(countries) {
                 }
             }
             return notVisited;
-
         }
     }).addTo(mymap);
 
