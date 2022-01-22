@@ -49,7 +49,7 @@ function updateMap(countries) {
         "color": "#000000",
         "weight": 2
     };
-    mymap.clear();
+    mymap.remove();
 
     let visitedCountries = [];
     for (let i = 0; i < countries.length; i++) {
